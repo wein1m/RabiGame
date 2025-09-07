@@ -1,18 +1,70 @@
 @import "tailwindcss";
 :root {
-  --background: #101014;
-  --foreground: #ffffff;
+  --background: #f5f2e4;
+  --foreground: #060606;
 }
 
 @theme {
+  --color-primary: #060606;
+  --color-secondary: #ff5252;
+}
+
+/* ------ FONTS ------ */
+@layer utilities {
+  .font-neueMachina-light {
+    font-family: var(--font-neue-machina);
+    font-weight: 200;
+  }
+  .font-neueMachina-regular {
+    font-family: var(--font-neue-machina);
+    font-weight: 400;
+  }
+  .font-neueMachina-bold {
+    font-family: var(--font-neue-machina);
+    font-weight: 900;
+  }
+  .font-hk-grotesk {
+    font-family: var(--font-hanken-grotesk);
+  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
-@utility abs-center {
-  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+@layer utilities {
+  .nav-transition {
+    /* transition: color 0.35s cubic-bezier(0.48, 0.04, 0.52, 0.96) 0s,
+      transform 0.35s cubic-bezier(0.66, 0, 0.34, 1) 0s;
+    transition: transform 0.35s cubic-bezier(0.66, 0, 0.34, 1) 0s,
+      color 0.35s cubic-bezier(0.48, 0.04, 0.52, 0.96) 0s; */
+    transition: transform 0.35s cubic-bezier(0, 0, 0.34, 1) 0.02s,
+      color 0.35s cubic-bezier(0.48, 0.04, 0.52, 0.96) 0s;
+    will-change: transform, color;
+  }
+
+  .nav-primary {
+    transform-origin: top center;
+    transform: scaleY(1);
+  }
+  .nav-primary.hidden {
+    transform: scaleY(0);
+  }
+
+  .nav-secondary {
+    transform-origin: bottom center;
+    transform: scaleY(0);
+  }
+  .nav-secondary.show {
+    transform: scaleY(1);
+  }
+
+  /* reduced-motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .nav-transition {
+      transition: none !important;
+      transform: none !important;
+    }
+  }
 }
