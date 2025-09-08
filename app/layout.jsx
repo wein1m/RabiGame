@@ -4,10 +4,10 @@ import { Hanken_Grotesk } from "next/font/google";
 import localFont from "next/font/local";
 import Neue_Machina from "next/font/local";
 
-const NotoSans = Noto_Sans_SC({
-  variable: "--font-noto-sans-sc",
-  subsets: ["latin"],
-});
+// const NotoSans = Noto_Sans_SC({
+//   variable: "--font-noto-sans-sc",
+//   subsets: ["latin"],
+// });
 
 const HankenGrotesk = Hanken_Grotesk({
   variable: "--font-hanken-grotesk",
