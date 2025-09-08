@@ -36,7 +36,7 @@ const HeroImg = () => {
 
       <div
         ref={imageRef}
-        className="w-fit h-fit overflow-hidden absolute right-44 top-48 z-1"
+        className="w-fit h-fit overflow-hidden absolute right-56 top-44 z-1 scale-110"
       >
         <img
           src={images[index].src}

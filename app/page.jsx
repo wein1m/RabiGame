@@ -1,10 +1,13 @@
-import HeroImg from '@/components/HeroImg'
-import React from 'react'
+import HeroImg from "@/components/HeroImg";
+import NavBtn from "@/components/NavBtn";
 
 const page = () => {
   return (
-    <HeroImg />
-  )
-}
+    <>
+      <HeroImg />
+      <NavBtn />
+    </>
+  );
+};
 
-export default page
+export default page;
