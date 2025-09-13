@@ -1,6 +1,6 @@
 "use client";
 
-import NavItem from "./NavItem";
+import NavItem from "@/components/Nav/NavItem";
 import gsap from "gsap";
 import { useEffect } from "react";
 
@@ -10,7 +10,7 @@ const NavList = () => {
   }, []);
 
   return (
-    <div className="flex justify-end w-full h-full py-28">
+    <div className="flex justify-end w-full h-full pt-28">
       <div className="flex flex-col w-fit">
         <div className="h-[9.5rem] overflow-hidden w-full">
           <NavItem label="Home" id="navItem" />

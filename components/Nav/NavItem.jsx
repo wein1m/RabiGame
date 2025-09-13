@@ -1,7 +1,5 @@
 "use client";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 // ---------------------- IMPLEMENTATION 🐰🐰 ---------------------- \\
 // const page = () => {
@@ -43,7 +41,7 @@ const NavItem = ({ label, href, id }) => {
 
       <a
         className={
-          "row-start-1 col-start-1 nav-transition nav-secondary font-neueMachina-bold text-[8.5rem] leading-24 inline-block text-secondary text-end " +
+          "row-start-1 col-start-1 nav-transition nav-secondary font-neueMachina-bold text-[8.5rem] leading-24 inline-block text-accent-primary text-end " +
           (isHovered ? "show" : "")
         }
       >

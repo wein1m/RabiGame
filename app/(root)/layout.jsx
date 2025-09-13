@@ -1,4 +1,4 @@
-import "./globals.css";
+import "../globals.css";
 import { Noto_Sans_SC } from "next/font/google";
 import { Hanken_Grotesk } from "next/font/google";
 import localFont from "next/font/local";
@@ -17,17 +17,17 @@ const HankenGrotesk = Hanken_Grotesk({
 const NeueMachina = localFont({
   src: [
     {
-      path: "../public/fonts/Neue-Machina/NeueMachina-Light.otf",
+      path: "../../public/fonts/Neue-Machina/NeueMachina-Light.otf",
       weight: "200",
       style: "normal",
     },
     {
-      path: "../public/fonts/Neue-Machina/NeueMachina-Regular.otf",
+      path: "../../public/fonts/Neue-Machina/NeueMachina-Regular.otf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../public/fonts/Neue-Machina/NeueMachina-Ultrabold.otf",
+      path: "../../public/fonts/Neue-Machina/NeueMachina-Ultrabold.otf",
       weight: "900",
       style: "normal",
     },

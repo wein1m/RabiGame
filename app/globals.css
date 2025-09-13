@@ -5,8 +5,12 @@
 }
 
 @theme {
+  --color-text-primary: #010101;
+  --color-text-secondary: #bdb296;
   --color-primary: #060606;
-  --color-secondary: #ff5252;
+  --color-secondary: #bdb296;
+  --color-accent-primary: #ff5252;
+  --color-accent-secondary: #99bbad;
 }
 
 /* ------ FONTS ------ */
@@ -74,4 +78,18 @@ body {
   mask-image: url("/mask-img.png");
   mask-repeat: no-repeat;
   mask-position: center;
+}
+
+@utility masked-img-2 {
+  mask-image: url("/mask-img-2.png");
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+a, h1, h2, h3, h4, h5, h6, span {
+  @apply cursor-default;
+}
+
+::selection {
+  @apply bg-secondary/40
 }

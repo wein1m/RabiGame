@@ -2,7 +2,7 @@
 
 import gsap from "gsap";
 import { useRef, useState, useEffect } from "react";
-import NavList from "./NavList";
+import NavList from "@/components/Nav/NavList";
 
 const NavBtn = () => {
   const redCircRef = useRef(null);
@@ -45,13 +45,13 @@ const NavBtn = () => {
   };
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden ">
       <div
         onClick={handleClick}
         className="hover:cursor-pointer absolute top-5 right-5"
       >
         {/* Button */}
-        <div className="rounded-full h-9 w-9 bg-secondary z-[999] rotate-90 flex items-center text-white justify-center font-bold pb-1 relative">
+        <div className="rounded-full h-9 w-9 bg-accent-primary z-[999] rotate-90 flex items-center text-white justify-center font-bold pb-1 relative">
           :
         </div>
 
@@ -62,11 +62,11 @@ const NavBtn = () => {
         ></div>
         <div
           ref={redCircRef}
-          className="rounded-full w-9 h-9 bg-secondary z-[500] absolute top-0 left-0"
+          className="rounded-full w-9 h-9 bg-accent-primary z-[500] absolute top-0 left-0"
         ></div>
       </div>
 
-      <div id="navItems" className="z-[700] absolute w-full">
+      <div id="navItems" className="z-[700] absolute top-0 w-full">
         <NavList />
       </div>
     </div>
