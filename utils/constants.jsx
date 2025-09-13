@@ -16,3 +16,27 @@ export const images = [
     alt: "Carousel Image 4",
   },
 ];
+
+export const gamePosters = [
+  {
+    src: "/images/games/poster_arknights.jpg",
+    alt: "Arknights poster",
+    title: "Arknights",
+    tag: "Strategy, Tower Defense, Single Player",
+    year: 2019
+  },
+  {
+    src: "/images/games/poster_battlefield6.jpg",
+    alt: "battlefield6 poster",
+    title: "Battlefield 6",
+    tag: "First Person, Shooter, Multiplayer",
+    year: 2025
+  },
+  {
+    src: "/images/games/poster_final-fantasy-XVI.jpg",
+    alt: "Final Fantasy 16 poster",
+    title: "Final Fantasy XVI",
+    tag: "Action, Fantasy, RPG",
+    year: 2023
+  },
+]

@@ -73,7 +73,6 @@ body {
   }
 }
 
-
 @utility masked-img {
   mask-image: url("/mask-img.png");
   mask-repeat: no-repeat;
@@ -86,10 +85,24 @@ body {
   mask-position: center;
 }
 
-a, h1, h2, h3, h4, h5, h6, span {
+.cursor-pointer {
+  @apply cursor-pointer!;
+}
+.cursor-default {
+  @apply cursor-default!;
+}
+
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
   @apply cursor-default;
 }
 
 ::selection {
-  @apply bg-secondary/40
+  @apply bg-secondary/40;
 }

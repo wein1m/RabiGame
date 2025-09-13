@@ -1,85 +1,163 @@
 "use client";
 import gsap from "gsap";
-import { useState, useEffect, useRef } from "react";
+import { InertiaPlugin } from "gsap/all";
+import Image from "next/image";
+import { useEffect, useRef } from "react";
+
+gsap.registerPlugin(InertiaPlugin);
 
 const BlobCursor = () => {
-  const [mounted, setMounted] = useState(false);
+  const blobRef = useRef(null);
+  const eyeRef = useRef(null);
+  const eyePos = useRef({ x: 0, y: 0 });
 
-  const mousePosition = useRef({ x: 0, y: 0 });
-  const dotPosition = useRef({ x: 0, y: 0 });
-  const borderDotPosition = useRef({ x: 0, y: 0 });
-
-  const [isHovering, setIsHovering] = useState(false);
-  const [renderPos, setRenderPos] = useState({
-    dot: { x: 0, y: 0 },
-    border: { x: 0, y: 0 },
+  const pos = useRef({
+    x: typeof window !== "undefined" ? window.innerWidth / 2 : 0,
+    y: typeof window !== "undefined" ? window.innerHeight / 2 : 0,
   });
 
-  useEffect(() => setMounted(true), []);
-
-  // Cursor animation + event listeners
   useEffect(() => {
-    if (!mounted) return;
+    if (!blobRef.current || !eyeRef.current) return;
 
-    const handleMouseMove = (e) => {
-      mousePosition.current = { x: e.clientX, y: e.clientY };
-    };
-    const handleMouseEnter = () => setIsHovering(true);
-    const handleMouseLeave = () => setIsHovering(false);
-
-    window.addEventListener("mousemove", handleMouseMove);
-    const interactiveElements = document.querySelectorAll(
-      "a, button, input, textarea, select"
-    );
-    interactiveElements.forEach((el) => {
-      el.addEventListener("mouseenter", handleMouseEnter);
-      el.addEventListener("mouseleave", handleMouseLeave);
+    // -----------| Blob Initialization |--------------
+    gsap.set(blobRef.current, {
+      xPercent: -50,
+      yPercent: -50,
+      width: 12,
+      height: 12,
+      x: pos.current.x,
+      y: pos.current.y,
+      willChange: "transform, width, height",
     });
+    gsap.set(eyeRef.current, { scale: 0, transformOrigin: "50% 50%" });
 
-    const animate = () => {
-      gsap.to(dotPosition.current, {
-        x: mousePosition.current.x,
-        y: mousePosition.current.y,
-        duration: 0.5,
-        ease: "power2",
+    // ----------| Mouse Move Handler |----------
+    const onMove = (e) => {
+      gsap.to(pos.current, {
+        x: e.clientX,
+        y: e.clientY,
+        duration: 0.7,
+        ease: "power3",
         onUpdate: () => {
-          setRenderPos({
-            dot: { x: dotPosition.current.x, y: dotPosition.current.y },
-            border: {
-              x: borderDotPosition.current.x,
-              y: borderDotPosition.current.y,
-            },
-          });
+          gsap.set(blobRef.current, { x: pos.current.x, y: pos.current.y });
         },
       });
 
-      requestAnimationFrame(animate);
+      // eye inertia effect
+      gsap.to(eyePos.current, {
+        x: e.clientX - pos.current.x,
+        y: e.clientY - pos.current.y,
+        inertia: { resistance: 50 },
+        duration: 1,
+        ease: "power2.out",
+        onUpdate: () => {
+          gsap.set(eyeRef.current, {
+            x: -(eyePos.current.x * 0.15),
+            y: -(eyePos.current.y * 0.15),
+          });
+        },
+      });
     };
-    const animationId = requestAnimationFrame(animate);
+    window.addEventListener("mousemove", onMove);
+
+    // ----------| Hover Target |----------
+    const posters = document.querySelectorAll("[data-game-poster]");
+    const links = document.querySelectorAll("a:not([data-game-poster])");
+
+    // Poster Links =========
+    // NOTE: use event.currentTarget to toggle class on the hovered element itself
+    const posterEnter = (event) => {
+      gsap.killTweensOf(blobRef.current);
+      gsap.to(blobRef.current, {
+        width: 80,
+        height: 80,
+        duration: 0.32,
+        ease: "power2.out",
+      });
+      gsap.to(eyeRef.current, { scale: 1, duration: 0.32, ease: "power2.out" });
+
+      const el = event.currentTarget;
+      if (el && el.classList) {
+        el.classList.add("cursor-pointer");
+        el.classList.remove("cursor-default");
+      }
+    };
+    const posterLeave = (event) => {
+      gsap.killTweensOf(blobRef.current);
+      gsap.to(blobRef.current, {
+        width: 12,
+        height: 12,
+        duration: 0.32,
+        ease: "power2.out",
+      });
+      gsap.to(eyeRef.current, { scale: 0, duration: 0.32, ease: "power2.out" });
+
+      const el = event.currentTarget;
+      if (el && el.classList) {
+        el.classList.add("cursor-default");
+        el.classList.remove("cursor-pointer");
+      }
+    };
+
+    posters.forEach((el) => {
+      el.addEventListener("mouseenter", posterEnter);
+      el.addEventListener("mouseleave", posterLeave);
+    });
+
+    // Other links ========
+    // toggle classes on the link element itself
+    const linkEnter = (event) => {
+      gsap.to(blobRef.current, { scale: 0, duration: 0.3, ease: "power2.out" });
+      const el = event.currentTarget;
+      if (el && el.classList) {
+        el.classList.add("cursor-pointer");
+        el.classList.remove("cursor-default");
+      }
+    };
+    const linkLeave = (event) => {
+      gsap.to(blobRef.current, { scale: 1, duration: 0.3, ease: "power2.out" });
+      const el = event.currentTarget;
+      if (el && el.classList) {
+        el.classList.add("cursor-default");
+        el.classList.remove("cursor-pointer");
+      }
+    };
+
+    links.forEach((el) => {
+      el.addEventListener("mouseenter", linkEnter);
+      el.addEventListener("mouseleave", linkLeave);
+    });
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      interactiveElements.forEach((el) => {
-        el.removeEventListener("mouseenter", handleMouseEnter);
-        el.removeEventListener("mouseleave", handleMouseLeave);
+      window.removeEventListener("mousemove", onMove);
+      posters.forEach((el) => {
+        el.removeEventListener("mouseenter", posterEnter);
+        el.removeEventListener("mouseleave", posterLeave);
       });
-      cancelAnimationFrame(animationId);
+      links.forEach((el) => {
+        el.removeEventListener("mouseenter", linkEnter);
+        el.removeEventListener("mouseleave", linkLeave);
+      });
+      document
+        .querySelectorAll(".cursor-pointer")
+        .forEach((n) => n.classList.remove("cursor-pointer"));
+      document
+        .querySelectorAll(".cursor-default")
+        .forEach((n) => n.classList.remove("cursor-default"));
     };
-  }, [mounted]);
-
-  if (!mounted) return null; // ✅ this is now safe
+  }, []);
 
   return (
     <div className="pointer-events-none fixed inset-0 z-50">
       <div
-        className={`absolute rounded-full bg-accent-primary transition duration-300 ease-in-out size-3 -translate-[50%] ${
-          isHovering ? "scale-200" : ""
-        }`}
-        style={{
-          left: `${renderPos.dot.x}px`,
-          top: `${renderPos.dot.y}px`,
-        }}
-      />
+        ref={blobRef}
+        id="blob"
+        className="fixed left-0 top-0 rounded-full bg-accent-primary flex items-center justify-center overflow-hidden transform-[translate3d(0,0,0)] will-change-[transform,width,height]"
+      >
+        <div ref={eyeRef} id="eye" className="size-[30px]">
+          <Image src="/eye.png" alt="eye" width={30} height={30} />
+        </div>
+      </div>
     </div>
   );
 };

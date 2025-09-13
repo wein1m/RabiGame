@@ -52,7 +52,7 @@ const About = () => {
   });
 
   return (
-    <div id="about" className="px-52 py-44 mb-[100rem]">
+    <div id="about" className="px-52 py-44">
       <div className="flex flex-row justify-center items-center gap-56">
         <div className="py-10 px-20 scale-125">
           <img

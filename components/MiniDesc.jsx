@@ -1,6 +1,6 @@
 import React from "react";
 
-const MiniDesc = ({ text }) => {
+const MiniDesc = ({ text, style }) => {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-row gap-3">
@@ -18,7 +18,10 @@ const MiniDesc = ({ text }) => {
         </div>
       </div>
 
-      <h5 className="font-hk-grotesk font-medium text-sm text-text-primary max-w-66 leading-4">
+      <h5
+        className={`font-hk-grotesk font-medium text-sm text-text-primary leading-4
+      ${style ? style : ""}`}
+      >
         {text}
       </h5>
     </div>

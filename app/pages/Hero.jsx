@@ -32,7 +32,7 @@ const Hero = () => {
     <div className="relative h-screen">
       <div className="absolute top-48 left-96">
         <div className="p-20">
-          <MiniDesc text="We are a console/PC games developer based in Tokyo" />
+          <MiniDesc text="We are a console/PC games developer based in Tokyo" style="max-w-66"/>
         </div>
       </div>
       <h1 className="text-[11rem] font-neueMachina-bold absolute leading-40 left-32 bottom-28 z-10">
