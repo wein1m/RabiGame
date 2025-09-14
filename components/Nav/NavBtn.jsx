@@ -39,8 +39,10 @@ const NavBtn = () => {
     setIsOpen((prev) => !prev);
     if (isOpen) {
       tl.current.reverse(2);
+      document.body.style.overflow = "hidden";
     } else {
       tl.current.play();
+      document.body.style.overflow = "auto";
     }
   };
 

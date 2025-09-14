@@ -1,4 +1,15 @@
 @import "tailwindcss";
+
+html {
+  overflow: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
 :root {
   --background: #f5f2e4;
   --foreground: #060606;
@@ -35,42 +46,6 @@
 body {
   background: var(--background);
   color: var(--foreground);
-}
-
-@layer utilities {
-  .nav-transition {
-    /* transition: color 0.35s cubic-bezier(0.48, 0.04, 0.52, 0.96) 0s,
-      transform 0.35s cubic-bezier(0.66, 0, 0.34, 1) 0s;
-    transition: transform 0.35s cubic-bezier(0.66, 0, 0.34, 1) 0s,
-      color 0.35s cubic-bezier(0.48, 0.04, 0.52, 0.96) 0s; */
-    transition: transform 0.35s cubic-bezier(0, 0, 0.34, 1) 0.02s,
-      color 0.35s cubic-bezier(0.48, 0.04, 0.52, 0.96) 0s;
-    will-change: transform, color;
-  }
-
-  .nav-primary {
-    transform-origin: top center;
-    transform: scaleY(1);
-  }
-  .nav-primary.hidden {
-    transform: scaleY(0);
-  }
-
-  .nav-secondary {
-    transform-origin: bottom center;
-    transform: scaleY(0);
-  }
-  .nav-secondary.show {
-    transform: scaleY(1);
-  }
-
-  /* reduced-motion support */
-  @media (prefers-reduced-motion: reduce) {
-    .nav-transition {
-      transition: none !important;
-      transform: none !important;
-    }
-  }
 }
 
 @utility masked-img {

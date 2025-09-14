@@ -31,19 +31,25 @@ const NavItem = ({ label, href, id }) => {
       onBlur={() => setIsHovered(false)}
     >
       <a
-        className={
-          "row-start-1 col-start-1 nav-transition nav-primary font-neueMachina-bold text-[8.5rem] leading-24 inline-block text-primary w-full text-end " +
-          (isHovered ? "hidden" : "")
-        }
+        className="row-start-1 col-start-1 font-neueMachina-bold text-[8.5rem] leading-24 inline-block text-primary w-full text-end"
+        style={{
+          transformOrigin: "top center",
+          transform: isHovered ? "scaleY(0)" : "scaleY(1)",
+          transition: "transform 0.35s cubic-bezier(0, 0, 0.34, 1) 0.02s,color 0.35s cubic-bezier(0.48, 0.04, 0.52, 0.96) 0s;",
+          willCHange: "transform, color",
+        }}
       >
         {label}
       </a>
 
       <a
-        className={
-          "row-start-1 col-start-1 nav-transition nav-secondary font-neueMachina-bold text-[8.5rem] leading-24 inline-block text-accent-primary text-end " +
-          (isHovered ? "show" : "")
-        }
+        className="row-start-1 col-start-1 font-neueMachina-bold text-[8.5rem] leading-24 inline-block text-accent-primary text-end"
+        style={{
+          transformOrigin: "bottom center",
+          transform: isHovered ? "scaleY(1)" : "scaleY(0)",
+          transition: "transform 0.35s cubic-bezier(0, 0, 0.34, 1) 0.02s,color 0.35s cubic-bezier(0.48, 0.04, 0.52, 0.96) 0s;",
+          willCHange: "transform, color",
+        }}
       >
         {label}
       </a>

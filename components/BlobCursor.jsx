@@ -88,8 +88,8 @@ const BlobCursor = () => {
       gsap.killTweensOf(blobRef.current);
       gsap.to(blobRef.current, {
         width: 12,
-        height: 12,
         duration: 0.32,
+        height: 12,
         ease: "power2.out",
       });
       gsap.to(eyeRef.current, { scale: 0, duration: 0.32, ease: "power2.out" });
@@ -150,7 +150,7 @@ const BlobCursor = () => {
   }, []);
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-50">
+    <div className="pointer-events-none fixed inset-0 z-[999999]">
       <div
         ref={blobRef}
         id="blob"

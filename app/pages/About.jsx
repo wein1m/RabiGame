@@ -21,46 +21,53 @@ const About = () => {
       {
         opacity: 1,
         filter: "blur(0px)",
-        duration: 2,
+        // duration: 2,
         stagger: 0.07,
         ease: "power2.inOut",
         scrollTrigger: {
           trigger: "#about",
           start: "top bottom",
+          end: "bottom center",
           toggleActions: "play none none none",
         },
       }
     );
-    gsap.fromTo(
-      "#bunny-img",
-      { scale: 0.8, y: 50, opacity: 0.6 },
-      {
-        scale: 1,
-        y: 0,
-        opacity: 1,
-        ease: "power3.inOut",
-        duration: 1,
-        scrollTrigger: {
-          trigger: "#about",
-          start: "top bottom",
-          toggleActions: "play none none none",
-        },
-      }
-    );
+    // gsap.fromTo(
+    //   "#bunny-img",
+    //   { scale: 0.8, y: 50, opacity: 0.6 },
+    //   {
+    //     scale: 1,
+    //     y: 0,
+    //     opacity: 1,
+    //     ease: "power3.inOut",
+    //     duration: 1,
+    //     scrollTrigger: {
+    //       trigger: "#about",
+    //       start: "top bottom",
+    //       toggleActions: "play none none none",
+    //     },
+    //   }
+    // );
 
     return () => textSplit.revert(); // clean up on unmount
   });
 
   return (
     <div id="about" className="px-52 py-44">
-      <div className="flex flex-row justify-center items-center gap-56">
-        <div className="py-10 px-20 scale-125">
+      <div className="flex flex-row justify-center items-center gap-20">
+        <div className="w-fit h-fit bg-red-500/20 -rotate-10 scale-80 group hover:scale-90 hover:rotate-0 transition duration-300 ease-[bezier(0.95, 0.05, 0.795, 0.035)]">
           <img
+            id="bunny-img"
+            src="/images/aboutImage.avif"
+            alt="bunny image"
+            className="w-full mix-blend-overlay"
+          />
+          {/* <img
             id="bunny-img"
             src="/bunny-stripe.png"
             alt="bunny image"
             className="w-full h-full rotate-10"
-          />
+          /> */}
         </div>
         <div className="flex flex-col gap-6">
           <div className="flex flex-row gap-3 items-center">
