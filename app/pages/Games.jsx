@@ -5,7 +5,7 @@ import React from "react";
 
 const Games = () => {
   return (
-    <div className="py-48 px-14">
+    <div className="px-14">
       <div className="flex flex-row justify-between items-center px-20">
         <h1 className="font-neueMachina-bold text-[11rem]">Games</h1>
         <MiniDesc
@@ -22,7 +22,7 @@ const Games = () => {
             className="flex flex-col gap-7 mb-28"
             key={index}
           >
-            <div className="overflow-hidden w-full h-[60rem] bg-secondary/80">
+            <div className="overflow-hidden w-full h-[60rem] bg-secondary/80 shadow-lg">
               <img
                 src={game.src}
                 alt={game.alt}

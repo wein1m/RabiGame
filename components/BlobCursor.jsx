@@ -61,7 +61,9 @@ const BlobCursor = () => {
     window.addEventListener("mousemove", onMove);
 
     // ----------| Hover Target |----------
-    const posters = document.querySelectorAll("[data-game-poster]");
+    const posters = document.querySelectorAll(
+      "[data-game-poster], [data-news-poster]"
+    );
     const links = document.querySelectorAll("a:not([data-game-poster])");
 
     // Poster Links =========

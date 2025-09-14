@@ -40,3 +40,25 @@ export const gamePosters = [
     year: 2023
   },
 ]
+
+export const newsPosters = [
+  {
+    src: "/images/news/assassinCreed.png",
+    alt: "Assasin Creed News Thumbnail",
+    title: "AC Shadows Title Update 1.0.7 - Release Notes",
+    short_desc: "Upon completing the main story on any difficulty, start a new game while keeping all collected skills, gear, Allies and",
+  },
+  {
+    src: "/images/news/museDash.png",
+    alt: "Muse Dash News Thumbnail",
+    title: "Muse Dash × Blue Archive Collab Confirmed",
+    short_desc: "Aris has connected to the Social Butterfly Marija FF111. The Game Development Department, roll out! Our",
+  },
+  {
+    src: "/images/news/umaMusume.png",
+    alt: "Uma Musume News Thumbnail",
+    title: "Discover the New Game Mode Breeding",
+    short_desc: "A major free update brings one of the most requested feature from the community—Choose which ...",
+  },
+
+]

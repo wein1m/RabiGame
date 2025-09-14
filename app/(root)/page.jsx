@@ -5,6 +5,7 @@ import Hero from "@/app/pages/Hero";
 import NavBtn from "@/components/Nav/NavBtn";
 import About from "../pages/About";
 import Games from "../pages/Games";
+import News from "../pages/News";
 
 const page = () => {
   return (
@@ -15,6 +16,7 @@ const page = () => {
       <NavBtn />
       <About />
       <Games />
+      <News />
     </main>
   );
 };
