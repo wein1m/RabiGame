@@ -36,8 +36,8 @@ const GamePoster = ({
           src={src}
           alt={alt}
           className={
-            "object-cover w-full h-full shadow-xl transition duration-300 ease-in-out" +
-            (objectPosition ? `object-${objectPosition} ` : " ") +
+            "object-cover w-full h-full shadow-xl transition duration-300 ease-in-out " +
+            (objectPosition ? `object-${objectPosition} ` : "") +
             (hover ? "scale-105" : " ")
           }
         />

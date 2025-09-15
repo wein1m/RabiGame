@@ -3,12 +3,14 @@
 import gsap from "gsap";
 import { useRef, useState, useEffect } from "react";
 import NavList from "@/components/Nav/NavList";
+import { useLenis } from "@studio-freight/react-lenis";
 
 const NavBtn = () => {
   const redCircRef = useRef(null);
   const creamCircRef = useRef(null);
   const tl = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
+  const lenis = useLenis();
 
   useEffect(() => {
     gsap.set("#navItems", { autoAlpha: 0 });
@@ -38,9 +40,13 @@ const NavBtn = () => {
   const handleClick = () => {
     setIsOpen((prev) => !prev);
     if (isOpen) {
+      lenis.stop();
+      document.body.setAttribute("data-lenis-stop", true);
       tl.current.reverse(2);
       document.body.style.overflow = "hidden";
     } else {
+      lenis.start();
+      document.body.removeAttribute("data-lenis-stop");
       tl.current.play();
       document.body.style.overflow = "auto";
     }
@@ -68,7 +74,7 @@ const NavBtn = () => {
         ></div>
       </div>
 
-      <div id="navItems" className="z-[700] absolute top-0 w-full">
+      <div id="navItems" className="z-[900] absolute top-0 w-full">
         <NavList />
       </div>
     </div>
