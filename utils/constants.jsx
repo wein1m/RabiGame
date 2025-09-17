@@ -33,7 +33,7 @@ export const gamePosters = [
     year: 2025,
   },
   {
-    src: "/images/games/poster_final-fantasy-XVI.jpg",
+    src: "/images/games/poster_AssassinCreed.jpg",
     alt: "Final Fantasy 16 poster",
     title: "Final Fantasy XVI",
     tag: "Action, Fantasy, RPG",
@@ -57,24 +57,24 @@ export const gamePosters = [
 
 export const newsPosters = [
   {
-    src: "/images/news/assassinCreed.png",
+    src: "/images/news/mongil.png",
     alt: "Assasin Creed News Thumbnail",
-    title: "AC Shadows Title Update 1.0.7 - Release Notes",
-    short_desc:
-      "Upon completing the main story on any difficulty, start a new game while keeping all collected skills, gear, Allies and",
+    title: "MONGIL: STAR DIVE Testers Recruitment!",
+    date: "27 Aug 2025",
+    short_desc: "Meet the mysterious creature \"Nyanners\" along with a whole cast of captivating characters and reveal your destiny! DIVE into a world of wonder!",
   },
   {
     src: "/images/news/museDash.png",
     alt: "Muse Dash News Thumbnail",
     title: "Muse Dash × Blue Archive Collab Confirmed",
-    short_desc:
-      "Aris has connected to the Social Butterfly Marija FF111. The Game Development Department, roll out! Our",
+    date: "19 Aug 2025",
+    short_desc: "Aris has connected to the Social Butterfly Marija FF111. The Game Development Department, roll out! Our missions this time? (　^ω^)ノ",
   },
-  {
-    src: "/images/news/umaMusume.png",
-    alt: "Uma Musume News Thumbnail",
-    title: "Discover the New Game Mode Breeding",
-    short_desc:
-      "A major free update brings one of the most requested feature from the community—Choose which ...",
-  },
+  // {
+  //   src: "/images/news/umaMusume.png",
+  //   alt: "Uma Musume News Thumbnail",
+  //   title: "Discover the New Game Mode Breeding",
+  //   short_desc:
+  //     "A major free update brings one of the most requested feature from the community—Choose which ...",
+  // },
 ];

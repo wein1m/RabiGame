@@ -6,6 +6,7 @@ import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 import Btn from "@/components/Btn";
+import GlareHover from "@/components/GlareHover";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -55,13 +56,22 @@ const About = () => {
   return (
     <div id="about" className="px-52 py-44">
       <div className="flex flex-row justify-center items-center gap-20">
-        <div className="w-fit h-fit bg-red-500/20 -rotate-10 scale-80 group hover:scale-90 hover:rotate-0 transition duration-300 ease-[bezier(0.95, 0.05, 0.795, 0.035)]">
-          <img
-            id="bunny-img"
-            src="/images/aboutImage.avif"
-            alt="bunny image"
-            className="w-full mix-blend-overlay"
-          />
+        <div className="w-fit h-fit bg-red-500/20 -rotate-10 scale-80 group hover:scale-90 hover:rotate-0 transition duration-300 ease-[cubic-bezier(0.7, 0, 0.84, 0)]">
+          <GlareHover
+            glareColor="#ffffff"
+            glareOpacity={0.3}
+            glareAngle={-30}
+            glareSize={300}
+            transitionDuration={800}
+            playOnce={false}
+          >
+            <img
+              id="bunny-img"
+              src="/images/aboutImage.avif"
+              alt="bunny image"
+              className="w-full mix-blend-overlay"
+            />
+          </GlareHover>
           {/* <img
             id="bunny-img"
             src="/bunny-stripe.png"

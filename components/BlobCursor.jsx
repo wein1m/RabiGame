@@ -64,7 +64,9 @@ const BlobCursor = () => {
     const posters = document.querySelectorAll(
       "[data-game-poster], [data-news-poster]"
     );
-    const links = document.querySelectorAll("a:not([data-game-poster])");
+    const links = document.querySelectorAll(
+      "a:not([data-game-poster]):not([data-news-poster])"
+    );
 
     // Poster Links =========
     // NOTE: use event.currentTarget to toggle class on the hovered element itself

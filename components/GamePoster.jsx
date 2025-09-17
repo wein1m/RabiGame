@@ -14,7 +14,6 @@ const GamePoster = ({
   tag,
   year,
 }) => {
-  const titleRef = useRef(null);
   const [hover, setHover] = useState(false);
 
   return (
@@ -56,7 +55,6 @@ const GamePoster = ({
           </span>
         </div>
         <div
-          ref={titleRef}
           className="flex items-center justify-center overflow-hidden h-16 w-40 mt-5 relative text-center"
         >
           <h5

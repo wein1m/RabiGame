@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import 'lenis/dist/lenis.css';
+@import "lenis/dist/lenis.css";
 
 html {
   overflow: auto;
@@ -42,10 +42,14 @@ html::-webkit-scrollbar {
   .font-hk-grotesk {
     font-family: var(--font-hanken-grotesk);
   }
+  .font-barlow {
+    font-family: var(--font-barlow);
+  }
 }
 
 body {
   background: var(--background);
+  @apply absolute inset-0 size-full bg-[url("/images/noise.png")];
   color: var(--foreground);
 }
 
@@ -60,6 +64,7 @@ body {
   mask-repeat: no-repeat;
   mask-position: center;
 }
+
 
 .cursor-pointer {
   @apply cursor-pointer!;

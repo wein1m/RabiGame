@@ -1,5 +1,5 @@
 import "../globals.css";
-import { Noto_Sans_SC } from "next/font/google";
+import { Barlow } from "next/font/google";
 import { Hanken_Grotesk } from "next/font/google";
 import localFont from "next/font/local";
 import Neue_Machina from "next/font/local";
@@ -11,6 +11,12 @@ import Neue_Machina from "next/font/local";
 
 const HankenGrotesk = Hanken_Grotesk({
   variable: "--font-hanken-grotesk",
+  subsets: ["latin"],
+});
+
+const BarlowFont = Barlow({
+  variable: "--font-barlow",
+  weight: "600",
   subsets: ["latin"],
 });
 
@@ -38,7 +44,9 @@ const NeueMachina = localFont({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${HankenGrotesk.variable} ${NeueMachina.variable} antialiased`}>
+      <body
+        className={`${HankenGrotesk.variable} ${NeueMachina.variable} ${BarlowFont.variable} antialiased`}
+      >
         {children}
       </body>
     </html>

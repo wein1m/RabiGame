@@ -1,31 +1,27 @@
-import Arrow from "@/components/Arrow";
+import NewsPoster from "@/components/NewsPoster";
+import SeeAll from "@/components/SeeAll";
 import { newsPosters } from "@/utils/constants";
 
 // I HATE EVERYTHING IN THIS SECTION, FUTURE ME... PLS.. FIX IT.
 
 const News = () => {
   return (
-    <div className="py-48 px-[8.5rem]">
-      <div className="flex flex-row justify-between items-center">
+    <div className="py-48 px-14">
+      <div className="flex flex-row justify-between items-center px-20">
         <h1 className="font-neueMachina-bold text-[11rem]">News</h1>
+        <SeeAll />
       </div>
-      <div className="flex flex-row gap-10">
+      <div className="flex flex-row gap-2">
         {newsPosters.map((news, index) => (
-          <div data-news-poster className="w-1/3 flex flex-col gap-2" key={index}>
-            <div className="rounded-3xl">
-              <img
-                src={news.src}
-                alt={news.alt}
-                className="object-cover w-full h-full rounded-xl"
-              />
-            </div>
-            <div className="w-full h-full flex items-center">
-              <h3 className="font-neueMachina-bold text-3xl">{news.title}</h3>
-              <div className="mx-2 aspect-square">
-                <Arrow active={true} className="p-2" />
-              </div>
-            </div>
-          </div>
+          <NewsPoster
+            key={index}
+            src={news.src}
+            alt={news.alt}
+            title={news.title}
+            date={news.date}
+            short_desc={news.short_desc}
+            className=""
+          />
         ))}
       </div>
     </div>

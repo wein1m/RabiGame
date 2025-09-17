@@ -5,8 +5,10 @@ import NavBtn from "@/components/Nav/NavBtn";
 import About from "../pages/About";
 import Games from "../pages/Games";
 import News from "../pages/News";
+import gsap, { CustomEase } from "gsap/all";
 
 export default function Page() {
+  CustomEase.create("easeInExpo", "0.7, 0, 0.84, 0");
   return (
     <LenisProvider>
       <main className="scroll-container lenis lenis-scrolling relative">
