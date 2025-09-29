@@ -10,7 +10,7 @@ const NavList = () => {
   }, []);
 
   return (
-    <div className="flex justify-end w-full h-full pt-28">
+    <div className="flex justify-end w-full h-full pt-28 px-32">
       <div className="flex flex-col w-fit">
         <div className="h-[9.5rem] overflow-hidden w-full">
           <NavItem label="Home" id="navItem" />

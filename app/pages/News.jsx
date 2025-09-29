@@ -6,7 +6,7 @@ import { newsPosters } from "@/utils/constants";
 
 const News = () => {
   return (
-    <div className="py-48 px-14">
+    <div id="news" className="py-48 px-14">
       <div className="flex flex-row justify-between items-center px-20">
         <h1 className="font-neueMachina-bold text-[11rem]">News</h1>
         <SeeAll />

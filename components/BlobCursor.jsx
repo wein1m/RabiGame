@@ -47,8 +47,8 @@ const BlobCursor = () => {
       gsap.to(eyePos.current, {
         x: e.clientX - pos.current.x,
         y: e.clientY - pos.current.y,
-        inertia: { resistance: 50 },
-        duration: 1,
+        inertia: { resistance: 30 },
+        duration: 3,
         ease: "power2.out",
         onUpdate: () => {
           gsap.set(eyeRef.current, {
@@ -62,7 +62,7 @@ const BlobCursor = () => {
 
     // ----------| Hover Target |----------
     const posters = document.querySelectorAll(
-      "[data-game-poster], [data-news-poster]"
+      "[data-game-poster], [data-news-poster], video"
     );
     const links = document.querySelectorAll(
       "a:not([data-game-poster]):not([data-news-poster])"

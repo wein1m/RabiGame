@@ -2,7 +2,6 @@
 @import "lenis/dist/lenis.css";
 
 html {
-  overflow: auto;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
@@ -64,7 +63,6 @@ body {
   mask-repeat: no-repeat;
   mask-position: center;
 }
-
 
 .cursor-pointer {
   @apply cursor-pointer!;

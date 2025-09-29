@@ -18,10 +18,10 @@ const About = () => {
 
     gsap.fromTo(
       textSplit.words,
-      { opacity: 0, filter: "blur(3px)" },
+      { opacity: 0, y:10 },
       {
         opacity: 1,
-        filter: "blur(0px)",
+        y:0,
         // duration: 2,
         stagger: 0.07,
         ease: "power2.inOut",
@@ -107,7 +107,7 @@ const About = () => {
               realizing our dream of becoming a lead studio.
             </h5>
           </div>
-          <Btn />
+          {/* <Btn /> */}
         </div>
       </div>
     </div>

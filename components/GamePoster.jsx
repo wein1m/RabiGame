@@ -13,6 +13,7 @@ const GamePoster = ({
   title,
   tag,
   year,
+  name
 }) => {
   const [hover, setHover] = useState(false);
 
@@ -22,7 +23,7 @@ const GamePoster = ({
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       data-active={hover ? "true" : "false"}
-      href="#"
+      href={`/games/${name}`}
       className={"flex flex-col gap-7 " + (className ? className : "")}
       style={{
         width: width,

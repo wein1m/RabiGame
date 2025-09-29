@@ -8,17 +8,12 @@ import News from "../pages/News";
 import gsap, { CustomEase } from "gsap/all";
 
 export default function Page() {
-  CustomEase.create("easeInExpo", "0.7, 0, 0.84, 0");
   return (
-    <LenisProvider>
-      <main className="scroll-container lenis lenis-scrolling relative">
-        <BlobCursor />
-        <Hero />
-        <NavBtn />
-        <About />
-        <Games />
-        <News />
-      </main>
-    </LenisProvider>
+    <main>
+      <Hero />
+      <About />
+      <Games />
+      <News />
+    </main>
   );
 }

@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import MiniDesc from "../../components/MiniDesc";
 import Grid from "@/components/Grid/Grid";
 import Image from "next/image";
+import Games from "./test";
 
 const Hero = () => {
   const imageRef = useRef(null);
@@ -37,7 +38,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative h-screen">
+    <div id="hero" className="relative h-screen">
       <div className="absolute top-48 left-96">
         <div className="p-20">
           <MiniDesc
@@ -50,7 +51,7 @@ const Hero = () => {
         id="hero-title"
         className="text-[11rem] font-neueMachina-bold absolute leading-40 left-32 bottom-28 z-10"
       >
-        Dreams <br /> into Games
+        Dreams<br /> into Games
       </h1>
 
       <div className="w-[600px] h-[560px] overflow-hidden absolute right-[24.8rem] bottom-[12.4rem] z-1">

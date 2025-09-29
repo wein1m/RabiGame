@@ -19,13 +19,6 @@ export const images = [
 
 export const gamePosters = [
   {
-    src: "/images/games/poster_arknights.jpg",
-    alt: "Arknights poster",
-    title: "Arknights",
-    tag: "Strategy, Tower Defense, Single Player",
-    year: 2019,
-  },
-  {
     src: "/images/games/poster_battlefield6.jpg",
     alt: "battlefield6 poster",
     title: "Battlefield 6",
@@ -33,9 +26,16 @@ export const gamePosters = [
     year: 2025,
   },
   {
+    src: "/images/games/poster_arknights.jpg",
+    alt: "Arknights poster",
+    title: "Arknights",
+    tag: "Strategy, Tower Defense, Single Player",
+    year: 2019,
+  },
+  {
     src: "/images/games/poster_AssassinCreed.jpg",
-    alt: "Final Fantasy 16 poster",
-    title: "Final Fantasy XVI",
+    alt: "Assasin's Creed poster",
+    title: "Assasin's Creed",
     tag: "Action, Fantasy, RPG",
     year: 2023,
   },
