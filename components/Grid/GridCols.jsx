@@ -1,16 +1,28 @@
-const GridCols = ({ isBottom }) => {
-  const borderOdd = isBottom ? "border-y border-x" : "border-t border-x";
-  const borderEven = isBottom ? "border-y" : "border-t";
-
+const GridCols = ({ cols, isBottom, size }) => {
   return (
-    <div className="grid grid-cols-7 gap-0">
-      <div className={`col-span-1 size-[7rem] size- ${borderOdd} border-accent-secondary`}></div>
-      <div className={`col-span-1 size-[7rem] ${borderEven} border-accent-secondary`}></div>
-      <div className={`col-span-1 size-[7rem] ${borderOdd} border-accent-secondary`}></div>
-      <div className={`col-span-1 size-[7rem] ${borderEven} border-accent-secondary`}></div>
-      <div className={`col-span-1 size-[7rem] ${borderOdd} border-accent-secondary`}></div>
-      <div className={`col-span-1 size-[7rem] ${borderEven} border-accent-secondary`}></div>
-      <div className={`col-span-1 size-[7rem] ${borderOdd} border-accent-secondary`}></div>
+    <div
+      className="grid gap-0"
+      style={{ gridTemplateColumns: `repeat(${cols}, 1fr)` }}
+    >
+      {Array.from({ length: cols }).map((_, i) => {
+        const isOdd = i % 2 === 0;
+
+        const border = isOdd
+          ? isBottom
+            ? "border-y border-x"
+            : "border-t border-x"
+          : isBottom
+          ? "border-y"
+          : "border-t";
+
+        return (
+          <div
+            key={i}
+            className={`${border} border-accent-secondary`}
+            style={{ width: size, height: size }}
+          />
+        );
+      })}
     </div>
   );
 };

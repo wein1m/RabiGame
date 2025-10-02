@@ -51,7 +51,8 @@ const Hero = () => {
         id="hero-title"
         className="text-[11rem] font-neueMachina-bold absolute leading-40 left-32 bottom-28 z-10"
       >
-        Dreams<br /> into Games
+        Dreams
+        <br /> into Games
       </h1>
 
       <div className="w-[600px] h-[560px] overflow-hidden absolute right-[24.8rem] bottom-[12.4rem] z-1">
@@ -72,7 +73,14 @@ const Hero = () => {
           className="object-cover w-full h-full"
         />
       </div> */}
-      <Grid />
+      <div className="p-20 absolute top-0 right-0">
+        <Grid />
+        <button className="m-20 rounded-full absolute bottom-0 right-0 size-56 border-accent-secondary border bg-[#f5f2e4]"></button>
+        <img
+          src="/bunny-vector.png"
+          className="m-20 absolute top-[11.3rem] right-30 -rotate-12 scale-68"
+        />
+      </div>
     </div>
   );
 };

@@ -6,6 +6,7 @@ import Nav from "./Nav";
 import BlobCursor from "@/components/BlobCursor";
 import LenisProvider from "./LenisProvider";
 import { CustomEase } from "gsap/all";
+import gsap from "gsap";
 // import Neue_Machina from "next/font/local";
 
 // const NotoSans = Noto_Sans_SC({
@@ -45,6 +46,7 @@ const NeueMachina = localFont({
   variable: "--font-neue-machina",
 });
 
+gsap.registerPlugin(CustomEase);
 export default function RootLayout({ children }) {
   CustomEase.create("easeInExpo", "0.7, 0, 0.84, 0");
   return (
