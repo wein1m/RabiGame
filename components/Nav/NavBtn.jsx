@@ -38,17 +38,19 @@ const NavBtn = () => {
         },
         ">" // after previous
       )
-      .fromTo(
-        "#miniDesc",
-        { yPercent: 100, autoAlpha: 0 },
-        {
-          yPercent: 0,
-          autoAlpha: 1,
-          duration: 0.6,
-          ease: "power2.inOut",
-        },
-      );
-      // .fromTo("#logo", { z: 1 }, { z: 99999 });
+    .fromTo(
+      "#miniDesc span",
+      { yPercent: 100, autoAlpha: 0 },
+      {
+        yPercent: 0,
+        autoAlpha: 1,
+        duration: 0.6,
+        ease: "power2.inOut",
+        stagger: 0.1,
+      },
+      0 // right after the nav items
+    );
+    // .fromTo("#logo", { z: 1 }, { z: 99999 });
     console.log(document.getElementById("#logo"));
   }, []);
   const handleClick = (e) => {

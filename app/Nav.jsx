@@ -1,49 +1,46 @@
 "use client";
 
 import NavBtn from "@/components/Btn";
-// import useDetectScroll from "@smakss/react-scroll-direction";
 import useDetectScroll from "@/components/useDetectScroll";
 import gsap from "gsap";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 const Nav = () => {
   const { scrollDir } = useDetectScroll();
+  const tl = useRef(null);
 
   useEffect(() => {
     gsap.set("#logo", {
-      y: 0,
-      // x: 0,
+      yPercent: 0,
       opacity: 1,
+    });
+
+    tl.current = gsap.timeline({
+      paused: true,
+      defaults: { ease: "expo.inOut" },
+    });
+
+    tl.current.to("#logo", {
+      // x: -200,
+      yPercent: -20,
+      opacity: 0,
+      duration: 0.3,
+      ease: "power2",
     });
   }, []);
 
-  if (scrollDir == "down") {
-    gsap.to("#logo", {
-      // x: -200,
-      y: -10,
-      opacity: 0,
-      scaleY: 0.5,
-      filter: "blur(2px)",
-      duration: 1,
-      ease: "power3",
-    });
-  }
-  if (scrollDir == "up") {
-    gsap.to("#logo", {
-      x: 0,
-      y: 0,
-      opacity: 1,
-      scaleY: 1,
-      filter: "none",
-      duration: 1,
-      ease: "power3",
-    });
-  }
+  // if (scrollDir == "down") {
+  //   tl.current.play();
+  // }
+  // if (scrollDir == "up") {
+  //   tl.current.reverse();
+  // }
 
   useEffect(() => {
-    console.log(scrollDir);
-    console.log("Logo: ", document.getElementById("#logo"));
+    scrollDir == "down" ? tl.current.play() : tl.current.reverse();
+    // console.log(scrollDir);
+    // console.log("Logo: ", document.getElementById("#logo"));
   }, [scrollDir]);
 
   return (

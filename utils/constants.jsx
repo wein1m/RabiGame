@@ -78,3 +78,22 @@ export const newsPosters = [
   //     "A major free update brings one of the most requested feature from the community—Choose which ...",
   // },
 ];
+
+export const navs = [
+  {
+    title: "Home",
+    href: "#"
+  },
+  {
+    title: "About",
+    href: "#"
+  },
+  {
+    title: "News",
+    href: "#"
+  },
+  {
+    title: "Contact",
+    href: "#"
+  },
+]

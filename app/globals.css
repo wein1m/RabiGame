@@ -85,3 +85,8 @@ span {
 ::selection {
   @apply bg-secondary/40;
 }
+
+.stroke-text {
+  -webkit-text-stroke: 2px var(--color-secondary);
+  color: transparent;
+}

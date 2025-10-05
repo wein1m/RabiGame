@@ -8,7 +8,6 @@ import MiniDesc from "../MiniDesc";
 const NavList = () => {
   useEffect(() => {
     gsap.set("#navItem", { y: 200 });
-    gsap.set("#miniDesc", { y: 200 }); // start hidden same as navItems
   }, []);
 
   return (
@@ -31,8 +30,8 @@ const NavList = () => {
         </div>
 
         {/* <div className="relative overflow-hidden"> */}
-          <div id="miniDesc" className="absolute left-[20%] top-[40%] max-w-66">
-            <MiniDesc text="We are a console/PC games developer based in Bali, Indonesia" />
+          <div className="absolute left-0 top-[20%] max-w-66">
+            <MiniDesc text={`We are a console/PC games developer\nbased in Bali, Indonesia`} />
           </div>
         {/* </div> */}
       </div>

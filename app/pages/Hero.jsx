@@ -42,7 +42,7 @@ const Hero = () => {
       <div className="absolute top-48 left-96">
         <div className="p-20">
           <MiniDesc
-            text="We are a console/PC games developer based in Bali, Indonesia"
+            text={`We are a console/PC games developer\nbased in Bali, Indonesia`}
             style="max-w-66"
           />
         </div>
