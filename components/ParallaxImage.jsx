@@ -10,7 +10,9 @@ const ParallaxImage = ({ isImage, src, className, parallaxSpeed }) => {
     <img
       ref={parallax.ref}
       src={src}
-      className={`size-full object-cover ${className ? className : ""}`}
+      className={`size-full object-cover bg-secondary/80 ${
+        className ? className : ""
+      }`}
     />
   ) : (
     <video
@@ -20,7 +22,9 @@ const ParallaxImage = ({ isImage, src, className, parallaxSpeed }) => {
       muted
       controls={false}
       src={src}
-      className={`size-full object-cover ${className ? className : ""}`}
+      className={`size-full object-cover bg-secondary/80 ${
+        className ? className : ""
+      }`}
     />
   );
 };

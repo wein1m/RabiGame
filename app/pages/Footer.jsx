@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="mt-52">
       <div className="-rotate-3">
         <ScrollVelocity
-          texts={["✧ RABIGAMES ✧"]}
+          texts={["✦ RABIGAMES ✦"]}
           className="my-2 stroke-text"
           direction="right"
         />
@@ -60,7 +60,7 @@ const Footer = () => {
               <a
                 key={i}
                 href={nav.href}
-                className="font-hk-grotesk text-xl"
+                className="font-hk-grotesk font-semibold text-xl"
               >
                 {nav.title}
               </a>

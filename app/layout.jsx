@@ -7,6 +7,7 @@ import BlobCursor from "@/components/BlobCursor";
 import LenisProvider from "./LenisProvider";
 import { CustomEase } from "gsap/all";
 import gsap from "gsap";
+import Footer from "./pages/Footer";
 // import Neue_Machina from "next/font/local";
 
 // const NotoSans = Noto_Sans_SC({
@@ -58,6 +59,7 @@ export default function RootLayout({ children }) {
           <BlobCursor />
           <Nav />
           {children}
+          <Footer />
         </LenisProvider>
       </body>
     </html>

@@ -8,7 +8,6 @@ import News from "../pages/News";
 import gsap, { CustomEase } from "gsap/all";
 import Grid from "@/components/Grid/Grid";
 import Link from "next/link";
-import Footer from "../pages/Footer";
 
 export default function Page() {
   return (
@@ -24,7 +23,6 @@ export default function Page() {
         <Grid rows={3} cols={17} size="7rem" />
       </div>
       {/* <News /> */}
-      <Footer />
     </main>
   );
 }
