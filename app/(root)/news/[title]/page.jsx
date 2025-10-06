@@ -1,5 +1,5 @@
 import { ParallaxProviders } from "@/app/ParallaxProviders";
-import ParallaxImage from "@/components/ParallaxImage";
+import FloatUp from "@/components/FloatUp";
 import ResponsiveImage from "@/components/ResponsiveImage";
 
 const page = async ({ params }) => {

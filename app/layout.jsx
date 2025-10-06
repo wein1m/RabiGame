@@ -57,9 +57,9 @@ export default function RootLayout({ children }) {
       >
         <LenisProvider>
           <BlobCursor />
-          <Nav />
+          {/* <Nav /> */}
           {children}
-          <Footer />
+          {/* <Footer /> */}
         </LenisProvider>
       </body>
     </html>

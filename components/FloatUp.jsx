@@ -1,40 +1,39 @@
 "use client";
 
+import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useEffect, useRef, useState } from "react";
+import { SplitText } from "gsap/all";
+import { useRef } from "react";
 
-const FloatUp = () => {
-  const floatText = useRef(null);
-  const tl = useRef(null);
+gsap.registerPlugin(SplitText);
 
-  useEffect(() => {
-    tl.current = gsap.timeline({
-      paused: true,
-      defaults: { ease: "expo.inOut" },
+const FloatUp = ({ children, className }) => {
+  const textRef = useRef(null);
+
+  useGSAP(() => {
+    const text = new SplitText(textRef.current, {
+      type: "chars, words",
+      linesClass: "max-h-10 bg-red-500",
     });
-    tl.current.fromTo(
-      floatText.current,
+
+    gsap.fromTo(
+      text.chars,
       { yPercent: 100 },
       {
         yPercent: 0,
-        duration: 0.6,
-        ease: "power2.inOut",
+        duration: 1.8,
+        ease: "expo.out",
+        stagger: 0.05,
       }
     );
   }, []);
 
   return (
     <div
-      className="h-[9.5rem] overflow-hidden w-full"
-      onMouseEnter={() => tl.current.play()}
-      onMouseLeave={() => tl.current.reverse()}
+      ref={textRef}
+      className={`h-fit w-fit leading-none align-top  ${className}`}
     >
-      <a
-        ref={floatText}
-        className="font-neueMachina-bold text-[8.5rem] leading-24 inline-block text-primary w-full"
-      >
-        RabiGame
-      </a>
+      {children}
     </div>
   );
 };
