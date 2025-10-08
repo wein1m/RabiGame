@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Barlow } from "next/font/google";
 import { Hanken_Grotesk } from "next/font/google";
+import { Quicksand } from "next/font/google";
 import localFont from "next/font/local";
 import Nav from "./Nav";
 import BlobCursor from "@/components/BlobCursor";
@@ -17,6 +18,11 @@ import Footer from "./pages/Footer";
 
 const HankenGrotesk = Hanken_Grotesk({
   variable: "--font-hanken-grotesk",
+  subsets: ["latin"],
+});
+
+const QuickSand = Quicksand({
+  variable: "--font-quicksand",
   subsets: ["latin"],
 });
 
@@ -53,13 +59,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${HankenGrotesk.variable} ${NeueMachina.variable} ${BarlowFont.variable} antialiased scroll-container lenis lenis-scrolling relative`}
+        className={`${HankenGrotesk.variable} ${NeueMachina.variable} ${BarlowFont.variable} ${QuickSand.variable} antialiased scroll-container lenis lenis-scrolling relative`}
       >
         <LenisProvider>
           <BlobCursor />
-          {/* <Nav /> */}
+          <Nav />
           {children}
-          {/* <Footer /> */}
+          <Footer />
         </LenisProvider>
       </body>
     </html>

@@ -30,7 +30,7 @@ const NavItem = ({ label, href, id }) => {
       onFocus={() => setIsHovered(true)}
       onBlur={() => setIsHovered(false)}
     >
-      <a
+      <button
         className="row-start-1 col-start-1 font-neueMachina-bold text-[8.5rem] leading-24 inline-block text-primary w-full text-end"
         style={{
           transformOrigin: "top center",
@@ -40,9 +40,9 @@ const NavItem = ({ label, href, id }) => {
         }}
       >
         {label}
-      </a>
+      </button>
 
-      <a
+      <button
         className="row-start-1 col-start-1 font-neueMachina-bold text-[8.5rem] leading-24 inline-block text-accent-primary text-end"
         style={{
           transformOrigin: "bottom center",
@@ -52,7 +52,7 @@ const NavItem = ({ label, href, id }) => {
         }}
       >
         {label}
-      </a>
+      </button>
     </div>
   );
 };

@@ -4,20 +4,9 @@ import { navs } from "@/utils/constants";
 import React from "react";
 
 const Footer = () => {
+  // TODO: use doodles as full footer background ( see figma design )
   return (
     <footer className="mt-52">
-      <div className="-rotate-3">
-        <ScrollVelocity
-          texts={["✦ RABIGAMES ✦"]}
-          className="my-2 stroke-text"
-          direction="right"
-        />
-        {/* <ScrollVelocity
-          texts={["✧ RABIGAMES ✧"]}
-          className="text-secondary my-2"
-          direction="left"
-        /> */}
-      </div>
       <div className="mt-52 px-28 py-32 border-t border-secondary/70">
         <div className="flex flex-row justify-between">
           {/* Left Side */}

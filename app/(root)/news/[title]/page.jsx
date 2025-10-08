@@ -15,6 +15,7 @@ const page = async ({ params }) => {
             <ResponsiveImage
               src="/images/news/assassinCreed_update.png"
               parallaxSpeed={-10}
+              className="size-full"
             />
           </div>
         </div>
@@ -42,6 +43,7 @@ const page = async ({ params }) => {
             <ResponsiveImage
               src="/images/news/ac_shadow/newGamePlus.avif"
               parallaxSpeed={-5}
+              className="size-full"
             />
           </div>
 
@@ -74,6 +76,7 @@ const page = async ({ params }) => {
             <ResponsiveImage
               src="/images/news/ac_shadow/LevelCapIncreased.avif"
               parallaxSpeed={-5}
+              className="size-full"
             />
           </div>
 

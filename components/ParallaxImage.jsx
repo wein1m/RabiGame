@@ -10,7 +10,7 @@ const ParallaxImage = ({ isImage, src, className, parallaxSpeed }) => {
     <img
       ref={parallax.ref}
       src={src}
-      className={`size-full object-cover bg-secondary/80 ${
+      className={`object-cover bg-secondary/80 ${
         className ? className : ""
       }`}
     />

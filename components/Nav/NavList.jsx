@@ -13,26 +13,28 @@ const NavList = () => {
   return (
     <div className="flex justify-end w-full h-full pt-28 px-32">
       <div className="flex flex-col w-fit">
-        <div className="h-[9.5rem] overflow-hidden w-full">
-          <NavItem label="Home" id="navItem" />
-        </div>
-        <div className="h-[9.5rem] overflow-hidden w-full">
+        <a href="#" className="h-[9.5rem] overflow-hidden w-full hover:cursor-pointer!">
+          <NavItem label="Home" id="navItem"/>
+        </a>
+        <a href="/about/" className="h-[9.5rem] overflow-hidden w-full hover:cursor-pointer!">
           <NavItem label="About" id="navItem" />
-        </div>
-        <div className="h-[9.5rem] overflow-hidden w-full">
+        </a>
+        <a href="#" className="h-[9.5rem] overflow-hidden w-full hover:cursor-pointer!">
           <NavItem label="Games" id="navItem" />
-        </div>
-        <div className="h-[9.5rem] overflow-hidden w-full">
+        </a>
+        <a href="#" className="h-[9.5rem] overflow-hidden w-full hover:cursor-pointer!">
           <NavItem label="Careers" id="navItem" />
-        </div>
-        <div className="h-[9.5rem] overflow-hidden w-full">
+        </a>
+        <a href="#" className="h-[9.5rem] overflow-hidden w-full hover:cursor-pointer!">
           <NavItem label="Contact" id="navItem" />
-        </div>
+        </a>
 
         {/* <div className="relative overflow-hidden"> */}
-          <div className="absolute left-0 top-[20%] max-w-66">
-            <MiniDesc text={`We are a console/PC games developer\nbased in Bali, Indonesia`} />
-          </div>
+        <div className="absolute left-0 top-[20%] max-w-66">
+          <MiniDesc
+            text={`We are a console/PC games developer\nbased in Bali, Indonesia`}
+          />
+        </div>
         {/* </div> */}
       </div>
     </div>

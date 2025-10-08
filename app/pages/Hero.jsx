@@ -49,8 +49,8 @@ const Hero = () => {
         />
       </div>
       <h1 className="hero-title">
-        Dreams
-        <br /> into Games
+        Every
+        <br /> Bunny's Dream
       </h1>
 
       <div className="hero-carousel">

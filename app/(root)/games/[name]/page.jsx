@@ -51,6 +51,7 @@ const page = async ({ params }) => {
                 src="/images/battlefield/battlefield-6-all-out-warfare-16x9.avif"
                 isImage={true}
                 parallaxSpeed={-8}
+                className="size-full"
               />
             </div>
           </div>
@@ -61,22 +62,26 @@ const page = async ({ params }) => {
             <ParallaxImage
               src="/images/battlefield/battlefield6-preview1.jpg"
               isImage={true}
-              parallaxSpeed={1}
+              className="size-full"
+              parallaxSpeed={4}
             />
             <ParallaxImage
               src="/images/battlefield/battlefield6-preview2.jpg"
               isImage={true}
-              parallaxSpeed={1}
+              parallaxSpeed={4}
+              className="size-full"
             />
             <ParallaxImage
               src="/images/battlefield/battlefield6-preview4.jpg"
               isImage={true}
-              parallaxSpeed={1}
+              parallaxSpeed={4}
+              className="size-full"
             />
             <ParallaxImage
               src="/images/battlefield/battlefield6-preview3.jpg"
               isImage={true}
-              parallaxSpeed={1}
+              parallaxSpeed={4}
+              className="size-full"
             />
           </div>
           {/* <div className="flex flex-col w-full gap-40 justify-between px-28">
