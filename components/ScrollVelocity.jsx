@@ -47,7 +47,7 @@ export const ScrollVelocity = ({
     children,
     baseVelocity = velocity,
     scrollContainerRef,
-    className = "",
+    className = "my-2 stroke-text",
     damping,
     stiffness,
     numCopies,

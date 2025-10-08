@@ -221,4 +221,65 @@ stroke-text::selection {
       @apply lg:max-w-[1560px] lg:h-[800px] lg:my-32 lg:mt-42;
     }
   }
+
+  #page-contact {
+    @apply -mb-24 pt-44 lg:pt-56;
+
+    .title {
+      @apply px-5 flex flex-col w-full items-start gap-3;
+      @apply lg:px-56 lg:flex-row lg:gap-10;
+
+      h3 {
+        @apply text-base text-text-primary font-neueMachina-bold flex flex-row items-center gap-3;
+        @apply lg:w-[15%] lg:text-xl;
+      }
+
+      h1 {
+        @apply text-5xl font-neueMachina-bold;
+        @apply lg:text-9xl lg:leading-40;
+      }
+    }
+
+    .contact {
+      @apply mt-10 flex flex-col-reverse gap-12 w-full;
+      @apply lg:mt-32 lg:flex-row lg:gap-32;
+
+      .left-side {
+        @apply px-8;
+        @apply lg:pl-56;
+
+        iframe {
+          @apply w-[80vw] h-[350px];
+          @apply lg:w-[600px] lg:h-[350px];
+        }
+      }
+    }
+  }
+
+  form {
+    @apply flex flex-col p-4 m-4 gap-5 shadow-lg ;
+    @apply md:min-w-[40vw] md:p-10 md:gap-14;
+
+    div.name-container {
+      @apply flex flex-row gap-[10%];
+    }
+
+    div.form-input {
+      @apply w-full flex flex-col;
+
+      label {
+        @apply font-neueMachina-bold text-sm mb-2;
+        @apply md:text-base md:mb-4;
+      }
+
+      input,
+      textarea {
+        @apply w-full font-hk-grotesk text-secondary font-extrabold text-sm p-2 border-b border-secondary outline-none;
+        @apply focus:border-0 focus:ring-1 focus:ring-secondary md:text-base;
+      }
+    }
+    button {
+      @apply w-full py-3 bg-accent-primary font-neueMachina-bold text-lg text-white;
+    }
+  }
 }
