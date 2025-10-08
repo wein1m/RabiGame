@@ -5,9 +5,6 @@ import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
 import MiniDesc from "../../components/MiniDesc";
 import Grid from "@/components/Grid/Grid";
-import Image from "next/image";
-import Games from "./test";
-import FloatUp from "@/components/FloatUp";
 import { useMediaQuery } from "react-responsive";
 
 const Hero = () => {
@@ -41,7 +38,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div id="hero">
+    <section id="hero">
       <div className="hero-minidesc">
         <MiniDesc
           text={`We are a console/PC games developer\nbased in Bali, Indonesia`}
@@ -62,11 +59,11 @@ const Hero = () => {
       </div>
 
       <div className="hero-grid">
-        {isMobile ? <Grid cols={5} rows={6} size="4rem" /> : <Grid />}
+        {isMobile ? <Grid cols={5} rows={5} size="4rem" /> : <Grid />}
         <button className="hero-btn" />
         <img src="/bunny-vector.png" />
       </div>
-    </div>
+    </section>
   );
 };
 

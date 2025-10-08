@@ -84,19 +84,23 @@ export const newsPosters = [
 export const navs = [
   {
     title: "Home",
-    href: "#",
+    href: "/",
   },
   {
     title: "About",
-    href: "#",
+    href: "/about",
   },
   {
     title: "News",
-    href: "#",
+    href: "/news",
+  },
+  {
+    title: "Games",
+    href: "/games",
   },
   {
     title: "Contact",
-    href: "#",
+    href: "/contact",
   },
 ];
 
