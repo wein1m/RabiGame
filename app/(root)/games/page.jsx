@@ -9,7 +9,7 @@ const page = () => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    setIndex(0);
+    setIndex(-1);
   }, []);
 
   useEffect(() => {

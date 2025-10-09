@@ -63,8 +63,8 @@ function useDetectScroll(props = {}) {
 
       // If candidate equals current committed direction, accept immediately and reset
       if (newCandidate === scrollDir) {
+        candidate.current = newCandidate;
         clearCandidateTimer();
-        candidate.current = null;
         lastAcceptedScroll.current = Math.max(0, scroll);
         // no state change needed (already set)
       } else {

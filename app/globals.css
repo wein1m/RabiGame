@@ -285,7 +285,7 @@ stroke-text::selection {
       }
 
       p {
-        @apply font-hk-grotesk leading-[1.9rem] tracking-[0.015em] font-medium text-xl text-text-primary my-5 px-4 text-start;
+        @apply font-hk-grotesk font-medium text-sm text-text-primary my-5 px-4 text-start;
         @apply lg:px-12 lg:leading-10 lg:tracking-[0.02em] lg:text-2xl;
       }
 
@@ -294,7 +294,7 @@ stroke-text::selection {
       }
 
       ul {
-        @apply font-hk-grotesk leading-[1.9rem] tracking-[0.015em] font-medium text-xl text-text-primary my-5 px-4 text-justify list-disc;
+        @apply font-hk-grotesk leading-[1.9rem] tracking-[0.015em] font-medium text-xl text-text-primary my-5 px-12 text-justify list-disc;
         @apply lg:px-12 lg:leading-10 lg:tracking-[0.02em] lg:text-2xl;
       }
     }

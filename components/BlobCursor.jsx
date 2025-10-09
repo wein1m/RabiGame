@@ -3,10 +3,13 @@ import gsap from "gsap";
 import { InertiaPlugin } from "gsap/all";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { useMediaQuery } from "react-responsive";
 
 gsap.registerPlugin(InertiaPlugin);
 
 const BlobCursor = () => {
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+
   const blobRef = useRef(null);
   const eyeRef = useRef(null);
   const eyePos = useRef({ x: 0, y: 0 });
@@ -151,7 +154,9 @@ const BlobCursor = () => {
     };
   }, []);
 
-  return (
+  return isMobile ? (
+    <div />
+  ) : (
     <div className="pointer-events-none fixed inset-0 z-[999999]">
       <div
         ref={blobRef}

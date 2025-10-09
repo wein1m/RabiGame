@@ -1,20 +1,13 @@
 import "./globals.css";
-import { Barlow } from "next/font/google";
+import gsap from "gsap";
+import { CustomEase } from "gsap/all";
 import { Hanken_Grotesk } from "next/font/google";
 import { Quicksand } from "next/font/google";
 import localFont from "next/font/local";
+import LenisProvider from "./LenisProvider";
 import Nav from "./Nav";
 import BlobCursor from "@/components/BlobCursor";
-import LenisProvider from "./LenisProvider";
-import { CustomEase } from "gsap/all";
-import gsap from "gsap";
 import Footer from "./pages/Footer";
-// import Neue_Machina from "next/font/local";
-
-// const NotoSans = Noto_Sans_SC({
-//   variable: "--font-noto-sans-sc",
-//   subsets: ["latin"],
-// });
 
 const HankenGrotesk = Hanken_Grotesk({
   variable: "--font-hanken-grotesk",
@@ -23,12 +16,6 @@ const HankenGrotesk = Hanken_Grotesk({
 
 const QuickSand = Quicksand({
   variable: "--font-quicksand",
-  subsets: ["latin"],
-});
-
-const BarlowFont = Barlow({
-  variable: "--font-barlow",
-  weight: "600",
   subsets: ["latin"],
 });
 
@@ -59,14 +46,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${HankenGrotesk.variable} ${NeueMachina.variable} ${BarlowFont.variable} ${QuickSand.variable} antialiased scroll-container lenis lenis-scrolling relative`}
+        className={`${HankenGrotesk.variable} ${NeueMachina.variable} ${QuickSand.variable} antialiased scroll-container lenis lenis-scrolling relative`}
       >
-        <LenisProvider>
-          <BlobCursor />
+        {/* <LenisProvider> */}
+          {/* <BlobCursor /> */}
           {/* <Nav /> */}
           {children}
           {/* <Footer /> */}
-        </LenisProvider>
+        {/* </LenisProvider> */}
       </body>
     </html>
   );

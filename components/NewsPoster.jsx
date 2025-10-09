@@ -72,7 +72,7 @@ const NewsPoster = ({ src, alt, title, short_desc, date }) => {
       <div className="w-full h-full flex flex-col">
         <span className="text-secondary text-[0.8rem] font-semibold">{date}</span>
 
-        <h3 className="font-barlow tracking-wide font-semibold text-4xl">
+        <h3 className="font-hk-grotesk tracking-wide font-semibold text-4xl">
           {title.toUpperCase()}
         </h3>
 
