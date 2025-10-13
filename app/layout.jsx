@@ -48,12 +48,12 @@ export default function RootLayout({ children }) {
       <body
         className={`${HankenGrotesk.variable} ${NeueMachina.variable} ${QuickSand.variable} antialiased scroll-container lenis lenis-scrolling relative`}
       >
-        {/* <LenisProvider> */}
-          {/* <BlobCursor /> */}
-          {/* <Nav /> */}
+        <LenisProvider>
+          <BlobCursor />
+          <Nav />
           {children}
-          {/* <Footer /> */}
-        {/* </LenisProvider> */}
+          <Footer />
+        </LenisProvider>
       </body>
     </html>
   );
