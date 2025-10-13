@@ -30,25 +30,16 @@ const Nav = () => {
     });
   }, []);
 
-  // if (scrollDir == "down") {
-  //   tl.current.play();
-  // }
-  // if (scrollDir == "up") {
-  //   tl.current.reverse();
-  // }
-
   useEffect(() => {
     scrollDir == "down" ? tl.current.play() : tl.current.reverse();
-    // console.log(scrollDir);
-    // console.log("Logo: ", document.getElementById("#logo"));
   }, [scrollDir]);
 
   return (
-    <nav className="fixed top-0 left-0 w-full flex justify-start z-[100] p-10">
+    <nav className="fixed top-0 left-0 w-full flex justify-start z-[120] p-10">
       <Link
         id="logo"
         href="/"
-        className="relative font-hk-grotesk font-bold text-2xl uppercase text-primary"
+        className="z-[9999] font-hk-grotesk font-bold text-2xl uppercase text-primary"
       >
         <span>RabiGames</span>
       </Link>

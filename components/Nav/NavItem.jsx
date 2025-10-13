@@ -35,7 +35,8 @@ const NavItem = ({ label, href, id }) => {
         style={{
           transformOrigin: "top center",
           transform: isHovered ? "scaleY(0)" : "scaleY(1)",
-          transition: "transform 0.35s cubic-bezier(0, 0, 0.34, 1) 0.02s,color 0.35s cubic-bezier(0.48, 0.04, 0.52, 0.96) 0s",
+          transition:
+            "transform 0.35s cubic-bezier(0, 0, 0.34, 1) 0.02s,color 0.35s cubic-bezier(0.48, 0.04, 0.52, 0.96) 0s",
           willCHange: "transform, color",
         }}
       >
@@ -47,7 +48,8 @@ const NavItem = ({ label, href, id }) => {
         style={{
           transformOrigin: "bottom center",
           transform: isHovered ? "scaleY(1)" : "scaleY(0)",
-          transition: "transform 0.35s cubic-bezier(0, 0, 0.34, 1) 0.02s,color 0.35s cubic-bezier(0.48, 0.04, 0.52, 0.96) 0s",
+          transition:
+            "transform 0.35s cubic-bezier(0, 0, 0.34, 1) 0.02s,color 0.35s cubic-bezier(0.48, 0.04, 0.52, 0.96) 0s",
           willCHange: "transform, color",
         }}
       >

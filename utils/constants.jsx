@@ -91,12 +91,12 @@ export const navs = [
     href: "/about",
   },
   {
-    title: "News",
-    href: "/news",
+    title: "Games",
+    href: "/games/battlefield-6",
   },
   {
-    title: "Games",
-    href: "/games",
+    title: "News",
+    href: "/news/ac-shadows-title-update-1-0-7",
   },
   {
     title: "Contact",
@@ -133,14 +133,14 @@ export const aboutBio = [
       "Every pixel, every sound, every moment has meaning. When we work, we listen.. to the game, to each other, and to the heart of what makes play truly magical.",
     ],
   },
-  {
-    title: "Our Future Vision",
-    paragraph: [
-      "RabiGames is still small, but our dreams reach far. We see a future where our games connect people through rhythm, storytelling, and emotion.. a future where creativity isn't limited by size, but inspired by heart.",
-      "One day, we want players around the world to recognize the Rabi symbol — not just as a studio, but as a feeling. A beat that says: you're part of something alive.",
-      "This is only the first leap. The rhythm's just begun.",
-    ],
-  },
+  // {
+  //   title: "Our Future Vision",
+  //   paragraph: [
+  //     "RabiGames is still small, but our dreams reach far. We see a future where our games connect people through rhythm, storytelling, and emotion.. a future where creativity isn't limited by size, but inspired by heart.",
+  //     "One day, we want players around the world to recognize the Rabi symbol — not just as a studio, but as a feeling. A beat that says: you're part of something alive.",
+  //     "This is only the first leap. The rhythm's just begun.",
+  //   ],
+  // },
 ];
 
 export const aboutBios = [

@@ -3,6 +3,7 @@ import { ParallaxProviders } from "@/app/ParallaxProviders";
 import ParallaxImage from "@/components/ParallaxImage";
 import Grid from "@/components/Grid/Grid";
 import { urlFor } from "@/sanity/lib/image";
+import ScrollVelocity from "@/components/ScrollVelocity";
 
 const query = `*[_type == "game" && slug.current == $slug][0]{
   _id,
@@ -94,6 +95,14 @@ const page = async ({ params }) => {
             )}
           </div>
         </div>
+      </div>
+
+      <div className="mt-52 -rotate-3">
+        <ScrollVelocity
+          texts={["✦ RABIGAMES ✦"]}
+          className="my-2 stroke-text"
+          direction="right"
+        />
       </div>
     </ParallaxProviders>
   );

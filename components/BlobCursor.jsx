@@ -28,6 +28,7 @@ const BlobCursor = () => {
       yPercent: -50,
       width: 12,
       height: 12,
+      opacity: 1,
       x: pos.current.x,
       y: pos.current.y,
       willChange: "transform, width, height",
@@ -70,6 +71,7 @@ const BlobCursor = () => {
     const links = document.querySelectorAll(
       "a:not([data-game-poster]):not([data-news-poster])"
     );
+    const bigBlob = document.querySelectorAll("[data-big-blob]");
 
     // Poster Links =========
     // NOTE: use event.currentTarget to toggle class on the hovered element itself
@@ -109,6 +111,47 @@ const BlobCursor = () => {
     posters.forEach((el) => {
       el.addEventListener("mouseenter", posterEnter);
       el.addEventListener("mouseleave", posterLeave);
+    });
+
+    // Big Blob ========
+    // toggle classes on the link element itself
+    const bigBlobEnter = (event) => {
+      gsap.killTweensOf(blobRef.current);
+      gsap.to(blobRef.current, {
+        width: 50,
+        height: 50,
+        opacity: 0.5,
+        duration: 0.32,
+        ease: "power2.out",
+      });
+
+      const el = event.currentTarget;
+      if (el && el.classList) {
+        el.classList.add("cursor-pointer");
+        el.classList.remove("cursor-default");
+      }
+    };
+    const bigBlobLeave = (event) => {
+      gsap.killTweensOf(blobRef.current);
+      gsap.to(blobRef.current, {
+        width: 12,
+        height: 12,
+        opacity: 1,
+        duration: 0.32,
+        ease: "power2.out",
+      });
+      gsap.to(eyeRef.current, { scale: 0, duration: 0.32, ease: "power2.out" });
+
+      const el = event.currentTarget;
+      if (el && el.classList) {
+        el.classList.add("cursor-default");
+        el.classList.remove("cursor-pointer");
+      }
+    };
+
+    bigBlob.forEach((el) => {
+      el.addEventListener("mouseenter", bigBlobEnter);
+      el.addEventListener("mouseleave", bigBlobLeave);
     });
 
     // Other links ========
@@ -161,7 +204,7 @@ const BlobCursor = () => {
       <div
         ref={blobRef}
         id="blob"
-        className="fixed left-0 top-0 rounded-full bg-accent-primary flex items-center justify-center overflow-hidden transform-[translate3d(0,0,0)] will-change-[transform,width,height]"
+        className="fixed left-0 top-0 rounded-full bg-accent-primary flex items-center justify-center overflow-hidden transform-[translate3d(0,0,0)] will-change-[transform,width,height,color]"
       >
         <div ref={eyeRef} id="eye" className="size-[30px]">
           <Image src="/eye.png" alt="eye" width={30} height={30} />

@@ -16,48 +16,18 @@ const NavList = () => {
       <div className="flex flex-col w-fit">
         {navs.map((nav, i) => (
           <a
+            data-nav-list
             key={i}
             href={nav.href}
-            className="h-[9.5rem] overflow-hidden w-full hover:cursor-pointer!"
+            className="h-[9.5rem] overflow-hidden w-full"
           >
             <NavItem label={nav.title} id="navItem" />
           </a>
         ))}
-        {/* <a
-          href="#"
-          className="h-[9.5rem] overflow-hidden w-full hover:cursor-pointer!"
-        >
-          <NavItem label="Home" id="navItem" />
-        </a>
-        <a
-          href="/about/"
-          className="h-[9.5rem] overflow-hidden w-full hover:cursor-pointer!"
-        >
-          <NavItem label="About" id="navItem" />
-        </a>
-        <a
-          href="#"
-          className="h-[9.5rem] overflow-hidden w-full hover:cursor-pointer!"
-        >
-          <NavItem label="Games" id="navItem" />
-        </a>
-        <a
-          href="#"
-          className="h-[9.5rem] overflow-hidden w-full hover:cursor-pointer!"
-        >
-          <NavItem label="Careers" id="navItem" />
-        </a>
-        <a
-          href="#"
-          className="h-[9.5rem] overflow-hidden w-full hover:cursor-pointer!"
-        >
-          <NavItem label="Contact" id="navItem" />
-        </a> */}
 
-        {/* <div className="relative overflow-hidden"> */}
-        <div className="absolute left-0 top-[20%] max-w-66">
+        <div className="absolute left-0 top-[42%] max-w-66">
           <MiniDesc
-            text={`We are a console/PC games developer\nbased in Bali, Indonesia`}
+            text={`Shichirigahamahigashi, Kamakura,\nKanagawa 248-0025, Japan`}
           />
         </div>
         {/* </div> */}

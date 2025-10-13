@@ -37,22 +37,16 @@ const NavBtn = () => {
           ease: "power2.inOut",
         },
         ">" // after previous
-      )
-    .fromTo(
-      "#miniDesc span",
-      { yPercent: 100, autoAlpha: 0 },
-      {
-        yPercent: 0,
-        autoAlpha: 1,
-        duration: 0.6,
-        ease: "power2.inOut",
-        stagger: 0.1,
-      },
-      0 // right after the nav items
-    );
-    // .fromTo("#logo", { z: 1 }, { z: 99999 });
-    console.log(document.getElementById("#logo"));
+      );
+
+    gsap.set([redRef.current, creamRef.current, overlayRef.current], {
+      willChange: "transform, opacity",
+    });
+
+    return () =>
+      gsap.killTweensOf([redRef.current, creamRef.current, overlayRef.current]);
   }, []);
+
   const handleClick = (e) => {
     console.log("test");
     setIsOpen((prev) => !prev);
@@ -78,13 +72,10 @@ const NavBtn = () => {
         className="hover:cursor-pointer fixed top-5 right-5"
       >
         {/* Button */}
-        <div className="rounded-full h-9 w-9 bg-accent-primary z-[999] rotate-90 flex items-center text-white justify-center font-bold pb-1 relative">
+        <div className="rounded-full h-9 w-9 bg-accent-primary z-[140] rotate-90 flex items-center text-white justify-center font-bold pb-1 relative">
           :
         </div>
 
-        <a className="z-[999] relative font-hk-grotesk font-bold text-2xl uppercase text-primary">
-          test{console.log("test")}
-        </a>
         {/* Circles */}
         <div
           ref={creamCircRef}
@@ -96,8 +87,10 @@ const NavBtn = () => {
         ></div>
       </button>
 
-      <div id="navItems" className="z-[900] fixed top-0 w-full">
-        <NavList />
+      <div ref={overlayRef} className="fixed inset-0 z-[115] autoAlpha-0">
+        <div className="hover:cursor-pointer w-full h-full flex items-start justify-end pt-28 px-32">
+          <NavList />
+        </div>
       </div>
     </div>
   );

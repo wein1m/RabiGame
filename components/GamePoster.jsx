@@ -11,7 +11,8 @@ const GamePoster = ({ src, className, alt, title, tag, year, name }) => {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       data-active={hover ? "true" : "false"}
-      href={`/games/${name}`}
+      // href={`/games/${name}`}
+      href={`/games/battlefield-6`}
       className={"game-poster " + (className ? className : "")}
     >
       <div className="image-container">

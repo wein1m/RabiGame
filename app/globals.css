@@ -142,7 +142,7 @@ stroke-text::selection {
 
     .image-container {
       @apply hidden;
-      @apply lg:block w-fit h-fit bg-red-500/20 -rotate-10 scale-80 hover:scale-90 hover:rotate-0 transition duration-300;
+      @apply lg:block w-fit h-fit bg-red-200/10 -rotate-10 scale-80 hover:scale-90 hover:rotate-0 transition duration-300;
     }
 
     .desc-container {

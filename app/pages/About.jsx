@@ -23,17 +23,18 @@ const About = () => {
       {
         opacity: 1,
         y: 0,
-        // duration: 2,
         stagger: 0.07,
         ease: "power2.inOut",
         scrollTrigger: {
           trigger: "#about",
-          start: "top bottom",
-          end: "bottom center",
+          start: "top bottom", // ✅ top of #about hits bottom of viewport
+          end: "center center", // ✅ center of viewport aligns with center of #about
           toggleActions: "play none none none",
+          scrub: false, // optional: if you want smooth sync with scroll, set to true
         },
       }
     );
+
     // gsap.fromTo(
     //   "#bunny-img",
     //   { scale: 0.8, y: 50, opacity: 0.6 },
@@ -68,8 +69,8 @@ const About = () => {
         >
           <img
             id="bunny-img"
-            src="/images/aboutImage.avif"
-            alt="bunny image"
+            src="/images/team/photo1.jpeg"
+            alt="team image"
             className="w-full mix-blend-overlay"
           />
         </GlareHover>

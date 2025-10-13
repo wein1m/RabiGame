@@ -41,9 +41,9 @@ const page = () => {
         </div>
 
         <div className="overflow-hidden">
-          <div className="aboutUs-image1">
+          <div className="aboutUs-image1" data-big-blob>
             <ResponsiveImage
-              src="/images/games/poster_assassinCreed.jpg"
+              src="/images/team/photo2.jpeg"
               isImage={true}
               parallaxSpeed={-8}
               className="size-full"
@@ -60,7 +60,7 @@ const page = () => {
         </div>
 
         <div className="aboutUs-image2">
-          <div className="overflow-hidden">
+          <div className="overflow-hidden" data-big-blob>
             <ResponsiveImage
               src="/images/team/image1.png"
               isImage={true}
