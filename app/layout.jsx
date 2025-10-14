@@ -8,6 +8,7 @@ import LenisProvider from "./LenisProvider";
 import Nav from "./Nav";
 import BlobCursor from "@/components/BlobCursor";
 import Footer from "./pages/Footer";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const HankenGrotesk = Hanken_Grotesk({
   variable: "--font-hanken-grotesk",
@@ -53,6 +54,7 @@ export default function RootLayout({ children }) {
           <Nav />
           {children}
           <Footer />
+          <SpeedInsights />
         </LenisProvider>
       </body>
     </html>
