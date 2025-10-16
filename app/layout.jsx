@@ -43,7 +43,7 @@ const NeueMachina = localFont({
 
 gsap.registerPlugin(CustomEase);
 export default function RootLayout({ children }) {
-  CustomEase.create("easeInExpo", "0.7, 0, 0.84, 0");
+  CustomEase.create("easeInExpo", "0.87, 0, 0.13, 1");
   return (
     <html lang="en">
       <body

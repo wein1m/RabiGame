@@ -69,7 +69,7 @@ const BlobCursor = () => {
       "[data-game-poster], [data-news-poster], video"
     );
     const links = document.querySelectorAll(
-      "a:not([data-game-poster]):not([data-news-poster])"
+      "a:not([data-game-poster]):not([data-news-poster]), iframe, [data-no-blob]"
     );
     const bigBlob = document.querySelectorAll("[data-big-blob]");
 
@@ -114,8 +114,7 @@ const BlobCursor = () => {
     });
 
     // Big Blob ========
-    // toggle classes on the link element itself
-    const bigBlobEnter = (event) => {
+    const bigBlobEnter = () => {
       gsap.killTweensOf(blobRef.current);
       gsap.to(blobRef.current, {
         width: 50,
@@ -124,14 +123,8 @@ const BlobCursor = () => {
         duration: 0.32,
         ease: "power2.out",
       });
-
-      const el = event.currentTarget;
-      if (el && el.classList) {
-        el.classList.add("cursor-pointer");
-        el.classList.remove("cursor-default");
-      }
     };
-    const bigBlobLeave = (event) => {
+    const bigBlobLeave = () => {
       gsap.killTweensOf(blobRef.current);
       gsap.to(blobRef.current, {
         width: 12,
@@ -141,12 +134,6 @@ const BlobCursor = () => {
         ease: "power2.out",
       });
       gsap.to(eyeRef.current, { scale: 0, duration: 0.32, ease: "power2.out" });
-
-      const el = event.currentTarget;
-      if (el && el.classList) {
-        el.classList.add("cursor-default");
-        el.classList.remove("cursor-pointer");
-      }
     };
 
     bigBlob.forEach((el) => {

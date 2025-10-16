@@ -74,6 +74,10 @@ span {
   @apply cursor-default;
 }
 
+a {
+  @apply cursor-pointer!;
+}
+
 ::selection {
   @apply bg-secondary/40;
 }
@@ -118,7 +122,12 @@ stroke-text::selection {
 
     .hero-carousel {
       @apply w-[350px] h-[300px] bottom-32 overflow-hidden absolute z-1;
-      @apply lg:w-[600px] lg:h-[560px] lg:right-[24.8rem] lg:bottom-[12.4rem];
+      /*
+🐰🐰🐰🐰🐰🐰 FIRST ONE IS FOR BRAVE, 2ND FOR ZEN, 3RD FOR ZEN'S FULLSCREEN 🐰🐰🐰🐰🐰🐰
+      */
+      /* @apply lg:w-[600px] lg:h-[560px] lg:right-[24.8rem] lg:bottom-[12.4rem]; */
+      /* @apply lg:w-[600px] lg:h-[560px] lg:right-[24.8rem] lg:bottom-[16.5rem]; */
+      @apply lg:w-[600px] lg:h-[560px] lg:right-[24.8rem] lg:bottom-[19.5rem];
     }
 
     .hero-grid {
@@ -361,46 +370,47 @@ stroke-text::selection {
       }
     }
 
+    iframe {
+      @apply w-[80vw] h-[350px] mt-52;
+      @apply lg:px-44 lg:w-full lg:h-[50rem];
+    }
+
     .contact {
-      @apply mt-10 flex flex-col-reverse gap-12 w-full;
+      @apply mt-10 flex gap-12 w-full justify-center;
       @apply lg:mt-32 lg:flex-row lg:gap-32;
 
       .left-side {
         @apply px-8;
         @apply lg:pl-56;
+      }
 
-        iframe {
-          @apply w-[80vw] h-[350px];
-          @apply lg:w-[600px] lg:h-[350px];
+      form {
+        @apply flex flex-col p-4 -mt-12 gap-5 mx-auto;
+        @apply md:min-w-[40vw] md:p-10 md:gap-14;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+        div.name-container {
+          @apply flex flex-row gap-[10%];
+        }
+
+        div.form-input {
+          @apply w-full flex flex-col;
+
+          label {
+            @apply font-neueMachina-bold text-sm mb-2;
+            @apply md:text-xl md:mb-4;
+          }
+
+          input,
+          textarea {
+            @apply w-full font-hk-grotesk text-secondary font-extrabold text-sm p-2 border-b border-secondary outline-none;
+            @apply focus:border-0 focus:ring-1 focus:ring-secondary md:text-base;
+          }
+        }
+        button {
+          @apply w-full py-3 bg-accent-primary font-neueMachina-bold text-lg text-white;
         }
       }
-    }
-  }
-
-  form {
-    @apply flex flex-col p-4 m-4 gap-5 shadow-lg;
-    @apply md:min-w-[40vw] md:p-10 md:gap-14;
-
-    div.name-container {
-      @apply flex flex-row gap-[10%];
-    }
-
-    div.form-input {
-      @apply w-full flex flex-col;
-
-      label {
-        @apply font-neueMachina-bold text-sm mb-2;
-        @apply md:text-base md:mb-4;
-      }
-
-      input,
-      textarea {
-        @apply w-full font-hk-grotesk text-secondary font-extrabold text-sm p-2 border-b border-secondary outline-none;
-        @apply focus:border-0 focus:ring-1 focus:ring-secondary md:text-base;
-      }
-    }
-    button {
-      @apply w-full py-3 bg-accent-primary font-neueMachina-bold text-lg text-white;
     }
   }
 }

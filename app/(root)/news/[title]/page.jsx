@@ -45,6 +45,7 @@ const page = async ({ params }) => {
           {data.photo_cover && (
             <div>
               <ResponsiveImage
+                data-big-blob
                 src={urlFor(data.photo_cover).auto("format").url()}
                 parallaxSpeed={-10}
                 className="size-full"
@@ -67,7 +68,7 @@ const page = async ({ params }) => {
                     // urlFor expects an image object or reference
                     const src = urlFor(img).auto("format").url();
                     return (
-                      <div key={i}>
+                      <div key={i} data-big-blob>
                         <ResponsiveImage
                           src={src}
                           parallaxSpeed={-5}

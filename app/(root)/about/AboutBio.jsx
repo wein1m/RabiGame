@@ -4,7 +4,7 @@ const AboutBio = ({ title, children, no }) => {
   return (
     <div className="border-t border-secondary/60 pt-3 w-full">
       <div className="flex flex-row justify-between">
-        <h5 className="text-base font-neueMachina-bold capitalize tracking-wide text-text-primary mb-4">
+        <h5 className="font-neueMachina-bold capitalize tracking-wide text-text-primary mb-4 text-lg">
           {title}
         </h5>
         <h5 className="font-neueMachina-bold text-base text-secondary">/0{no}</h5>

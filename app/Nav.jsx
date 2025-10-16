@@ -39,9 +39,9 @@ const Nav = () => {
       <Link
         id="logo"
         href="/"
-        className="z-[9999] font-hk-grotesk font-bold text-2xl uppercase text-primary"
+        className="z-[9999] font-hk-grotesk font-bold text-2xl uppercase text-primary cursor-pointer!"
       >
-        <span>RabiGames</span>
+        <span className="cursor-pointer!">RabiGames</span>
       </Link>
       <NavBtn />
     </nav>

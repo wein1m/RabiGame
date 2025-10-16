@@ -2,6 +2,7 @@ import { ParallaxProviders } from "@/app/ParallaxProviders";
 import React from "react";
 import ContactForm from "./ContactForm";
 import ScrollVelocity from "@/components/ScrollVelocity";
+import NextBtn from "@/components/NextBtn";
 
 const page = () => {
   // const handleFormSubmit = (data) => {
@@ -25,6 +26,14 @@ const page = () => {
           </div>
         </div>
 
+        <div className="mt-52 -rotate-3">
+          <ScrollVelocity
+            texts={["✦ RABIGAMES ✦"]}
+            className="my-2 stroke-text"
+            direction="right"
+          />
+        </div>
+
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6511.699726668627!2d139.51169359670828!3d35.30971184601344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60184f42a6c2df5f%3A0xafcbf29fff985188!2sShichirigahamahigashi%2C%20Kamakura%2C%20Kanagawa%20248-0025%2C%20Japan!5e0!3m2!1sen!2sid!4v1759936070728!5m2!1sen!2sid"
           allowFullScreen=""
@@ -32,12 +41,8 @@ const page = () => {
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
 
-        <div className="mt-96 -rotate-3">
-          <ScrollVelocity
-            texts={["✦ RABIGAMES ✦"]}
-            className="my-2 stroke-text"
-            direction="right"
-          />
+        <div>
+          <NextBtn title="Games" href="/games/battlefield-6" />
         </div>
       </section>
     </ParallaxProviders>

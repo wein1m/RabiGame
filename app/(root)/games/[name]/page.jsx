@@ -41,8 +41,8 @@ const page = async ({ params }) => {
           </h1>
         </div>
 
-        <div className="max-w-[1760px] overflow-hidden relative my-24 bg-secondary/80">
-          <ParallaxImage src={data.trailer?.asset?.url} isImage={false} />
+        <div className="max-w-[1760px] overflow-hidden relative my-24 bg-secondary/80" data-big-blob>
+          <ParallaxImage src={data.trailer?.asset?.url} isImage={false}/>
         </div>
 
         <div className="px-72 flex flex-row w-full items-start">
@@ -60,7 +60,7 @@ const page = async ({ params }) => {
             <div className="absolute -z-30 mt-52">
               <Grid rows={6} cols={16} size="7.485rem" />
             </div>
-            <div className="max-w-[1440px] overflow-hidden my-24 mx-auto">
+            <div className="max-w-[1440px] overflow-hidden my-24 mx-auto" data-big-blob>
               <ParallaxImage
                 src={data.photo_cover?.asset?.url}
                 isImage={true}
@@ -78,7 +78,7 @@ const page = async ({ params }) => {
               data.photo_previews.map((img, i) => {
                 const src = urlFor(img).auto("format").url();
                 return (
-                  <div className="overflow-hidden" key={i}>
+                  <div className="overflow-hidden" key={i} data-big-blob>
                     <ParallaxImage
                       src={src}
                       isImage={true}

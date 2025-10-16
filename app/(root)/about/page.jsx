@@ -6,6 +6,7 @@ import AboutBio from "./AboutBio";
 import { aboutBio } from "@/utils/constants";
 import ScrollVelocity from "@/components/ScrollVelocity";
 import ResponsiveImage from "@/components/ResponsiveImage";
+import NextBtn from "@/components/NextBtn";
 
 const page = () => {
   return (
@@ -18,10 +19,9 @@ const page = () => {
           </h3>
           <h1>Who we are?</h1>
         </div>
-
         <div className="aboutPage-bio">
           <div className="teamImage">
-            <div className="overflow-hidden">
+            <div className="overflow-hidden" data-big-blob>
               <ParallaxImage
                 src="/images/team/photo1.jpeg"
                 isImage={true}
@@ -33,13 +33,14 @@ const page = () => {
             {aboutBio.map((bio, index) => (
               <AboutBio title={bio.title} no={index + 1} key={index}>
                 {bio.paragraph.map((item, i) => (
-                  <p key={i}>{item}</p>
+                  <p key={i} className="text-lg">
+                    {item}
+                  </p>
                 ))}
               </AboutBio>
             ))}
           </div>
         </div>
-
         <div className="overflow-hidden">
           <div className="aboutUs-image1" data-big-blob>
             <ResponsiveImage
@@ -50,7 +51,6 @@ const page = () => {
             />
           </div>
         </div>
-
         <div className="mt-24 -rotate-3">
           <ScrollVelocity
             texts={["✦ RABIGAMES ✦"]}
@@ -58,7 +58,6 @@ const page = () => {
             direction="right"
           />
         </div>
-
         <div className="aboutUs-image2">
           <div className="overflow-hidden" data-big-blob>
             <ResponsiveImage
@@ -69,23 +68,8 @@ const page = () => {
             />
           </div>
         </div>
-
-        {/* TODO: when contact is hovered, make fill slowly with accent-primary, like progress bar. my idea is by using masking, but idk how */}
-        <div className="w-full flex justify-center">
-          <h3 className="text-2xl text-accent-primary font-neueMachina-bold flex flex-row items-center gap-3">
-            <div className="rounded-full bg-accent-primary size-3" />
-            Next
-          </h3>
-        </div>
-        <div className="mx-auto relative w-fit h-fit">
-          <div className="left-0 absolute w-[40%] h-full bg-[#f5f2e5] mix-blend-difference" />
-          <h1 className="w-full h-full text-center text-9xl leading-40 font-neueMachina-bold mix-blend-overlay text-text-primary">
-            Contact
-          </h1>
-          <h1 className="absolute top-0 left-0 w-full h-full text-center text-9xl leading-40 font-neueMachina-bold text-text-primary -z-2">
-            Contact
-          </h1>
-        </div>
+        {/* TODO: when contact is hovered, make fill slowly with accent-primary, like progress bar. my idea is by using masking, but idk how */}{" "}
+        <NextBtn title="Contact" href="/contact" />
       </section>
     </ParallaxProviders>
   );

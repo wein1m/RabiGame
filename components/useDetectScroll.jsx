@@ -23,6 +23,7 @@ function useDetectScroll(props = {}) {
     scrollDown = axis === Axis.Y ? Direction.Down : Direction.Right,
     still = Direction.Still,
     debounceMs = 120,
+    allowRepeat = false,
   } = props;
 
   const [scrollDir, setScrollDir] = useState(still);
@@ -32,6 +33,9 @@ function useDetectScroll(props = {}) {
     left: 0,
     right: 0,
   });
+
+  const [scrollEventId, setScrollEventId] = useState(0);
+
   const threshold = Math.max(0, thr);
 
   const ticking = useRef(false);
@@ -44,6 +48,15 @@ function useDetectScroll(props = {}) {
       clearTimeout(candidateTimer.current);
       candidateTimer.current = null;
     }
+  };
+
+  const commitCandidate = (scroll, newCandidate) => {
+    // commit the candidate and update lastAcceptedScroll + event id
+    setScrollDir(newCandidate);
+    setScrollEventId((id) => id + 1);
+    lastAcceptedScroll.current = Math.max(0, scroll);
+    candidate.current = null;
+    clearCandidateTimer();
   };
 
   const updateScrollDir = useCallback(() => {
@@ -61,12 +74,20 @@ function useDetectScroll(props = {}) {
       const newCandidate =
         scroll > lastAcceptedScroll.current ? scrollDown : scrollUp;
 
-      // If candidate equals current committed direction, accept immediately and reset
+      // If candidate equals current committed direction
       if (newCandidate === scrollDir) {
+        // Existing behavior: accept immediately and reset lastAcceptedScroll (no state change)
+        // Modified: if allowRepeat is true, emit an event (increment id) so consumers can detect repeated commits
+        lastAcceptedScroll.current = Math.max(0, scroll);
         candidate.current = newCandidate;
         clearCandidateTimer();
-        lastAcceptedScroll.current = Math.max(0, scroll);
-        // no state change needed (already set)
+
+        if (allowRepeat) {
+          // force an "event" even if direction string is same
+          // setScrollDir to same value (harmless) and increment event id to signal a new commit
+          setScrollDir(newCandidate);
+          setScrollEventId((id) => id + 1);
+        }
       } else {
         // If candidate changed, restart debounce timer
         if (candidate.current !== newCandidate) {
@@ -74,9 +95,7 @@ function useDetectScroll(props = {}) {
           clearCandidateTimer();
           candidateTimer.current = setTimeout(() => {
             // commit the candidate after debounceMs of stability
-            setScrollDir(candidate.current);
-            lastAcceptedScroll.current = Math.max(0, scroll);
-            candidate.current = null;
+            commitCandidate(scroll, candidate.current);
             candidateTimer.current = null;
           }, debounceMs);
         }
@@ -84,7 +103,16 @@ function useDetectScroll(props = {}) {
       }
     }
     ticking.current = false;
-  }, [target, axis, threshold, scrollDown, scrollUp, scrollDir, debounceMs]);
+  }, [
+    target,
+    axis,
+    threshold,
+    scrollDown,
+    scrollUp,
+    scrollDir,
+    debounceMs,
+    allowRepeat,
+  ]);
 
   useEffect(() => {
     if (!target) {
@@ -148,7 +176,8 @@ function useDetectScroll(props = {}) {
     };
   }, [target, axis, updateScrollDir]);
 
-  return { scrollDir, scrollPosition };
+  // Now also return scrollEventId so consumers can detect repeated commits
+  return { scrollDir, scrollPosition, scrollEventId };
 }
 
 export { Axis, Direction, useDetectScroll as default };
