@@ -63,7 +63,7 @@ export default function ContactForm({ onSubmit }) {
       <div className="form-input">
         <label htmlFor="message">Message</label>
         <textarea
-          className="h-[6rem]"
+          className="h-[5rem]"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Enter your message ..."
