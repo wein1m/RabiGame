@@ -19,13 +19,13 @@ const NavList = () => {
             data-nav-list
             key={i}
             href={nav.href}
-            className="h-[9.5rem] overflow-hidden w-full"
+            className="h-[4rem] lg:h-[9.5rem] overflow-hidden w-full"
           >
             <NavItem label={nav.title} id="navItem" />
           </a>
         ))}
 
-        <div className="absolute left-0 top-[42%] max-w-66">
+        <div className="hidden lg:block absolute left-0 top-[42%] max-w-66">
           <MiniDesc
             text={`Shichirigahamahigashi, Kamakura,\nKanagawa 248-0025, Japan`}
           />

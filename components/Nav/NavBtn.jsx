@@ -1,16 +1,18 @@
 "use client";
 
 import gsap from "gsap";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import NavList from "@/components/Nav/NavList";
-import { useLenis } from "@studio-freight/react-lenis";
+import { useLenis } from "lenis/react";
+import { useStore } from "../../libs/store";
 
 const NavBtn = () => {
   const redCircRef = useRef(null);
   const creamCircRef = useRef(null);
   const tl = useRef(null);
 
-  const [isOpen, setIsOpen] = useState(false);
+  const isOpen = useStore((s) => s.isNavOpened);
+  const toggleNav = useStore((s) => s.toggleNav);
 
   const lenis = useLenis();
 
@@ -22,10 +24,10 @@ const NavBtn = () => {
       paused: true,
       defaults: { ease: "expo.inOut" },
     });
+
     tl.current
-      .to(redCircRef.current, { scale: 120, duration: 1 }, 0)
-      .to(creamCircRef.current, { scale: 120, duration: 1 }, 0.28)
-      .to(".logo", { zIndex: 9999 }, 0)
+      .to(redCircRef.current, { scale: 120, duration: 1.2 }, 0)
+      .to(creamCircRef.current, { scale: 120, duration: 1.2 }, 0.4)
       .to("#navItems", { autoAlpha: 1, ease: "none", duration: 0 }, 0.7)
       .fromTo(
         q("#navItem"),
@@ -36,61 +38,48 @@ const NavBtn = () => {
           duration: 0.6,
           ease: "power2.inOut",
         },
-        ">" // after previous
+        ">"
       );
-
-    gsap.set([redRef.current, creamRef.current, overlayRef.current], {
-      willChange: "transform, opacity",
-    });
-
-    return () =>
-      gsap.killTweensOf([redRef.current, creamRef.current, overlayRef.current]);
   }, []);
 
-  const handleClick = (e) => {
-    console.log("test");
-    setIsOpen((prev) => !prev);
-    e.preventDefault();
-    if (isOpen) {
+  const handleClick = () => {
+    toggleNav();
+
+    if (!isOpen) {
       lenis?.stop();
-      document.body.setAttribute("data-lenis-stop", true);
-      tl.current.reverse(2);
+      document.body.setAttribute("data-lenis-stop", "true");
+      tl.current?.play();
       document.body.style.overflow = "hidden";
     } else {
       lenis?.start();
       document.body.removeAttribute("data-lenis-stop");
-      tl.current.play();
+      tl.current?.reverse(2);
       document.body.style.overflow = "auto";
     }
   };
 
   return (
-    <div className="relative z-0">
-      <button
+    <div className="overflow-hidden">
+      <div
         onClick={handleClick}
-        type="button"
-        className="hover:cursor-pointer fixed top-5 right-5"
+        className="hover:cursor-pointer absolute top-5 right-5"
       >
-        {/* Button */}
-        <div className="rounded-full h-9 w-9 bg-accent-primary z-[140] rotate-90 flex items-center text-white justify-center font-bold pb-1 relative">
+        <div className="rounded-full h-9 w-9 bg-accent-primary z-[999] rotate-90 flex items-center text-white justify-center font-bold pb-1 relative">
           :
         </div>
 
-        {/* Circles */}
         <div
           ref={creamCircRef}
-          className="rounded-full w-9 h-9 bg-[#f5f2e4] z-[30] fixed top-0 left-0"
-        ></div>
+          className="rounded-full w-9 h-9 bg-[#f5f2e4] z-[600] absolute top-0 left-0"
+        />
         <div
           ref={redCircRef}
-          className="rounded-full w-9 h-9 bg-accent-primary z-[20] fixed top-0 left-0"
-        ></div>
-      </button>
+          className="rounded-full w-9 h-9 bg-accent-primary z-[500] absolute top-0 left-0"
+        />
+      </div>
 
-      <div ref={overlayRef} className="fixed inset-0 z-[115] autoAlpha-0">
-        <div className="hover:cursor-pointer w-full h-full flex items-start justify-end pt-28 px-32">
-          <NavList />
-        </div>
+      <div id="navItems" className="z-[700] absolute top-0 w-full">
+        <NavList />
       </div>
     </div>
   );

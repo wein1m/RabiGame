@@ -42,7 +42,7 @@ const page = () => {
         ></iframe>
 
         <div>
-          <NextBtn title="Games" href="/games/battlefield-6" />
+          {/* <NextBtn title="Games" href="/games/battlefield-6" /> */}
         </div>
       </section>
     </ParallaxProviders>

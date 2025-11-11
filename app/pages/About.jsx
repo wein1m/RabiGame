@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
-import Btn from "@/components/Btn";
+// import Btn from "@/components/Btn";
 import GlareHover from "@/components/GlareHover";
 import Link from "next/link";
 

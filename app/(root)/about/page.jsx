@@ -69,7 +69,7 @@ const page = () => {
           </div>
         </div>
         {/* TODO: when contact is hovered, make fill slowly with accent-primary, like progress bar. my idea is by using masking, but idk how */}{" "}
-        <NextBtn title="Contact" href="/contact" />
+        {/* <NextBtn title="Contact" href="/contact" /> */}
       </section>
     </ParallaxProviders>
   );

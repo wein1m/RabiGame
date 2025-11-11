@@ -23,7 +23,7 @@ const NavItem = ({ label, href, id }) => {
   return (
     <div
       id={id}
-      className="inline-grid overflow-hidden hover:cursor-pointer pl-20 pr-40 w-full outline-0 text-start h-[9.5rem]"
+      className="inline-grid overflow-hidden hover:cursor-pointer lg:pl-20 lg:pr-40 w-screen lg:w-full outline-0 text-start h-[4rem] lg:h-[9.5rem]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       tabIndex={0}
@@ -31,7 +31,7 @@ const NavItem = ({ label, href, id }) => {
       onBlur={() => setIsHovered(false)}
     >
       <button
-        className="row-start-1 col-start-1 font-neueMachina-bold text-[8.5rem] leading-24 inline-block text-primary w-full text-end"
+        className="row-start-1 col-start-1 font-neueMachina-bold text-2xl leading-normal lg:text-[8.5rem] lg:leading-24 inline-block text-primary w-full text-center lg:text-end"
         style={{
           transformOrigin: "top center",
           transform: isHovered ? "scaleY(0)" : "scaleY(1)",
@@ -44,7 +44,7 @@ const NavItem = ({ label, href, id }) => {
       </button>
 
       <button
-        className="row-start-1 col-start-1 font-neueMachina-bold text-[8.5rem] leading-24 inline-block text-accent-primary text-end"
+        className="row-start-1 col-start-1 font-neueMachina-bold text-2xl leading-normal lg:text-[8.5rem] lg:leading-24 inline-block text-accent-primary text-center lg:text-end"
         style={{
           transformOrigin: "bottom center",
           transform: isHovered ? "scaleY(1)" : "scaleY(0)",

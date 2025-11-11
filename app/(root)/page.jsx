@@ -1,3 +1,5 @@
+"use client";
+
 import LenisProvider from "../LenisProvider";
 import BlobCursor from "@/components/BlobCursor";
 import Hero from "@/app/pages/Hero";
@@ -10,22 +12,30 @@ import Grid from "@/components/Grid/Grid";
 import Link from "next/link";
 import ScrollVelocity from "@/components/ScrollVelocity";
 import Quotes from "../pages/Quotes";
+import { useMediaQuery } from "react-responsive";
 
 export default function Page() {
+  const isMobile = useMediaQuery({ maxWidth: 768 });
   return (
-    <main>
+    <main className="overflow-hidden">
       {/* <Quotes /> */}
       <Hero />
       <About />
       <Games />
 
-      <div className="mt-32 relative">
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-[5rem] py-[2.7rem] bg-accent-primary text-white tex">
-          <Link href="#" className="font-neueMachina-bold text-xl">
+      <div className="mt-32 relative flex justify-center items-center">
+        <div className="px-11 py-4.5 lg:px-[5rem] lg:py-[2.7rem] bg-accent-primary text-white">
+          <Link href="#" className="font-neueMachina-bold text-lg lg:text-xl">
             Check all Games
           </Link>
         </div>
-        <Grid rows={3} cols={17} size="7rem" />
+        <div className="absolute -z-1">
+          {isMobile ? (
+            <Grid cols={6} rows={3} size="4rem" />
+          ) : (
+            <Grid rows={3} cols={17} size="7rem" />
+          )}
+        </div>
       </div>
       {/* <News /> */}
       <div className="mt-52 -rotate-3">

@@ -1,6 +1,6 @@
 "use client";
 
-import NavBtn from "@/components/Btn";
+import NavBtn from "@/components/Nav/NavBtn";
 import useDetectScroll from "@/components/useDetectScroll";
 import gsap from "gsap";
 import Link from "next/link";
@@ -35,11 +35,11 @@ const Nav = () => {
   }, [scrollDir]);
 
   return (
-    <nav className="fixed top-0 left-0 w-full flex justify-start z-[120] p-10">
+    <nav className="fixed top-0 left-0 w-screen flex justify-start z-[120] p-4 lg:p-10">
       <Link
         id="logo"
         href="/"
-        className="z-[9999] font-hk-grotesk font-bold text-2xl uppercase text-primary cursor-pointer!"
+        className="z-[9999] font-hk-grotesk font-bold text-lg lg:text-2xl uppercase text-primary cursor-pointer!"
       >
         <span className="cursor-pointer!">RabiGames</span>
       </Link>
